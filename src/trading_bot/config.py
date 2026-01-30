@@ -285,9 +285,15 @@ class Config:
         config_data: dict[str, Any] = {}
         config_path = Path(config_file)
 
-        if config_path.exists():
+        if config_path.is_file():
             with open(config_path) as f:
                 config_data = json.load(f)
+        elif config_path.exists() and config_path.is_dir():
+            import logging
+            logging.getLogger(__name__).warning(
+                "config.json is a directory (often from Docker creating a missing mount). "
+                "Use a real config file: remove the directory and copy config.example.json to config.json."
+            )
 
         # Extract parameters from JSON with defaults
         trading = config_data.get("trading", {})

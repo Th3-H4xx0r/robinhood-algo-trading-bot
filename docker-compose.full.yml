@@ -1,5 +1,9 @@
 # Full stack: trading-bot, API, frontend, Redis (for Dokploy or local)
 # Usage: docker-compose -f docker-compose.full.yml up -d
+#
+# Before first run: ensure config.json exists as a FILE (not a directory).
+# If you see "Is a directory: config.json", Docker created a dir; remove it
+# and create a real config.json file in this directory.
 
 version: '3.8'
 

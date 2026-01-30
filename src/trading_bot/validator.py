@@ -113,10 +113,10 @@ class ConfigValidator:
                 "Ensure you have completed paper trading validation (§Safety_First)"
             )
 
-        # Check if config.json exists
-        if not self.config.config_file.exists():
+        # Check if config.json exists and is a file (not a directory, e.g. Docker-created mount)
+        if not self.config.config_file.is_file():
             self.warnings.append(
-                f"config.json not found at {self.config.config_file}. "
+                f"config.json not found or not a file at {self.config.config_file}. "
                 "Using default parameters. Copy config.example.json to config.json to customize."
             )
 
