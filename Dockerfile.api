@@ -1,0 +1,32 @@
+# API Service - FastAPI monitoring and control
+# Shares dependencies with trading-bot; runs uvicorn for api.app.main
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system deps (minimal; no Claude CLI needed for API)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Application code: src (for trading_bot imports) and api
+COPY src/ ./src/
+COPY api/ ./api/
+
+# PYTHONPATH: /app for api package, /app/src for trading_bot
+ENV PYTHONPATH=/app:/app/src
+ENV PYTHONUNBUFFERED=1
+
+# Create dirs used at runtime (logs, backtest_results mounted or created)
+RUN mkdir -p /app/logs /app/backtest_results
+
+EXPOSE 8000
+
+# Override in compose if needed (e.g. host/port)
+CMD ["uvicorn", "api.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
