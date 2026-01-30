@@ -32,8 +32,10 @@ The VPS uses Dokploy for all deployments. **Do NOT create standalone containers*
 ### Option 1: Via Dokploy Web UI (Recommended)
 
 1. Access Dokploy at your VPS IP (port configured in Dokploy)
-2. Navigate to the trading-bot application
-3. Click "Redeploy" or "Rebuild"
+2. Create or open the trading-bot application:
+   - **New app**: Type **Docker Compose**, source **Git**, set **Compose File** to `docker-compose.full.yml` to run bot + API + frontend + Redis (or `docker-compose.yml` for bot only)
+   - Set repository, branch, and environment variables in Dokploy
+3. Click **Deploy** (first time) or **Redeploy** / **Rebuild** (updates)
 4. Monitor logs in the Dokploy UI
 
 ### Option 2: Via CLI (for urgent fixes)

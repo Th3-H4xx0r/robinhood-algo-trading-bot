@@ -26,6 +26,8 @@
 
 Dokploy supports deploying Docker Compose applications directly from Git repositories.
 
+**Full stack (bot + API + frontend + Redis):** Use **Compose File**: `docker-compose.full.yml` so Dokploy deploys all four services. The default `docker-compose.yml` runs only the trading-bot container.
+
 ### Step 1: Connect to VPS
 
 ```bash
@@ -48,7 +50,7 @@ docker ps | grep dokploy
    - **Source**: Git Repository
    - **Repository**: `https://github.com/marcusgoll/robinhood-algo-trading-bot.git`
    - **Branch**: `main`
-   - **Compose File**: `docker-compose.yml`
+   - **Compose File**: `docker-compose.full.yml` (for bot + API + frontend + Redis), or `docker-compose.yml` (bot only)
 
 ### Step 3: Configure Environment Variables
 
