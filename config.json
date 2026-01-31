@@ -1,0 +1,70 @@
+{
+    "_comment": "Copy to config.json and edit. Credentials go in .env (ALPACA_API_KEY, etc.).",
+    "trading": {
+      "mode": "paper",
+      "hours": {
+        "start_time": "06:30",
+        "end_time": "13:00",
+        "timezone": "America/Los_Angeles"
+      }
+    },
+    "phase_progression": {
+      "current_phase": "experience",
+      "experience": {
+        "max_trades_per_day": 999
+      },
+      "proof": {
+        "max_trades_per_day": 1
+      }
+    },
+    "risk_management": {
+      "max_position_pct": 5.0,
+      "max_daily_loss_pct": 3.0,
+      "max_consecutive_losses": 3,
+      "position_size_shares": 100,
+      "stop_loss_pct": 2.0,
+      "risk_reward_ratio": 2.0,
+      "account_risk_pct": 1.0,
+      "min_risk_reward_ratio": 2.0,
+      "default_stop_pct": 2.0,
+      "trailing_enabled": true,
+      "pullback_lookback_candles": 20,
+      "trailing_breakeven_threshold": 0.5,
+      "atr_enabled": false,
+      "atr_period": 14,
+      "atr_multiplier": 2.0,
+      "atr_recalc_threshold": 0.2,
+      "enable_break_even_protection": true,
+      "enable_scaling_in": true,
+      "enable_catastrophic_exit": true,
+      "break_even_atr_multiple": 2.0,
+      "scaling_atr_multiple": 1.5,
+      "scaling_max_count": 3,
+      "scaling_size_pct": 0.5,
+      "catastrophic_exit_atr_multiple": 3.0
+    },
+    "order_management": {
+      "offset_mode": "bps",
+      "buy_offset": 15.0,
+      "sell_offset": 10.0,
+      "max_slippage_pct": 0.5,
+      "poll_interval_seconds": 15,
+      "strategy_overrides": {}
+    },
+    "telegram": {
+      "enabled": false,
+      "quiet_hours_start": "22:00",
+      "quiet_hours_end": "06:00",
+      "quiet_hours_timezone": "America/Los_Angeles",
+      "critical_bypass_quiet": true,
+      "duplicate_suppress_minutes": 10
+    },
+    "crypto": {
+        "enabled": false
+    },
+    "momentum_scanning": {
+      "mode": "static",
+      "symbols": ["MSFT", "SPY", "MU", "NVDA", "SNDK", "GOOG", "AMD", "AMAT", "PSLV", "CVX"]
+    }
+  }
+  

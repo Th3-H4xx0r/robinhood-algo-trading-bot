@@ -90,6 +90,10 @@ logs/orders.jsonl
 *.log
 *.csv
 *.json
+
+# Add this line HERE to re-allow config.json
+!config.json
+
 !config/*.json  # Allow config files
 backtests/results/
 backtests/logs/
