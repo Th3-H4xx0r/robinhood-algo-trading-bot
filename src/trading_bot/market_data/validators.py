@@ -180,5 +180,5 @@ def validate_trade_time(current_time: datetime | None = None) -> None:
     """
     from src.trading_bot.utils.time_utils import is_trading_hours
 
-    if not is_trading_hours("America/New_York", current_time):
+    if not is_trading_hours("America/Los_Angeles", current_time):
         raise TradingHoursError("Trading blocked outside 7am-10am EST")

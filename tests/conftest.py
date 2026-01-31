@@ -81,7 +81,7 @@ def mock_config() -> Mock:
     # Trading hours
     config.trading_start_time = "07:00"
     config.trading_end_time = "10:00"
-    config.trading_timezone = "America/New_York"
+    config.trading_timezone = "America/Los_Angeles"
 
     # Risk parameters (nested objects for T013-T021)
     config.max_position_pct = 5.0

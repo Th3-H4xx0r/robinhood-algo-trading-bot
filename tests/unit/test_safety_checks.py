@@ -87,7 +87,7 @@ class TestTradingHoursEnforcement:
         from src.trading_bot.config import Config
 
         config = Mock(spec=Config)
-        config.trading_timezone = "America/New_York"
+        config.trading_timezone = "America/Los_Angeles"
 
         # Mock time utils to return False (outside hours)
         mock_is_trading_hours.return_value = False
@@ -96,7 +96,7 @@ class TestTradingHoursEnforcement:
         result = safety.check_trading_hours()
 
         assert result is False, "Should block trade outside trading hours"
-        mock_is_trading_hours.assert_called_once_with("America/New_York")
+        mock_is_trading_hours.assert_called_once_with("America/Los_Angeles")
 
 
 class TestDailyLossCircuitBreaker:
@@ -295,7 +295,7 @@ class TestValidateTradeOrchestration:
         mock_trading_hours.return_value = True
 
         config = Mock(spec=Config)
-        config.trading_timezone = "America/New_York"
+        config.trading_timezone = "America/Los_Angeles"
         config.max_daily_loss_pct = 3.0
         config.max_consecutive_losses = 3
         config.max_position_pct = 5.0
@@ -338,7 +338,7 @@ class TestValidateTradeOrchestration:
         mock_trading_hours.return_value = True
 
         config = Mock(spec=Config)
-        config.trading_timezone = "America/New_York"
+        config.trading_timezone = "America/Los_Angeles"
 
         safety = SafetyChecks(config)
         safety._circuit_breaker_active = False

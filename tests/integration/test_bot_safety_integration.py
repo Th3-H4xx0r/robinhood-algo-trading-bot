@@ -28,7 +28,7 @@ class TestBotSafetyIntegration:
             max_position_pct=5.0,
             max_daily_loss_pct=3.0,
             max_consecutive_losses=3,
-            trading_timezone="America/New_York"
+            trading_timezone="America/Los_Angeles"
         )
 
         # Verify SafetyChecks initialized
@@ -39,7 +39,7 @@ class TestBotSafetyIntegration:
         assert bot.safety_checks.config.max_daily_loss_pct == 3.0
         assert bot.safety_checks.config.max_consecutive_losses == 3
         assert bot.safety_checks.config.max_position_pct == 5.0
-        assert bot.safety_checks.config.trading_timezone == "America/New_York"
+        assert bot.safety_checks.config.trading_timezone == "America/Los_Angeles"
 
     def test_trade_execution_with_sufficient_buying_power(self, caplog):
         """

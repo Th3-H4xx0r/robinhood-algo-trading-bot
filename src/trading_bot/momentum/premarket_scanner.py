@@ -27,7 +27,7 @@ from .validation import validate_symbols
 logger = logging.getLogger(__name__)
 
 # EST timezone for pre-market window validation
-EST_TZ = ZoneInfo("America/New_York")
+EST_TZ = ZoneInfo("America/Los_Angeles")
 
 
 class PreMarketScanner:

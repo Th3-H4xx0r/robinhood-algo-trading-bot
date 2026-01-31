@@ -116,11 +116,11 @@ class MarketDataConfig:
         quote_staleness_threshold: Maximum quote age in seconds before considered stale (default: 300)
         trading_window_start: Trading window start hour in EST, 24-hour format (default: 7 for 7am)
         trading_window_end: Trading window end hour in EST, 24-hour format (default: 10 for 10am)
-        trading_timezone: Timezone for trading hours enforcement (default: 'America/New_York')
+        trading_timezone: Timezone for trading hours enforcement (default: 'America/Los_Angeles')
     """
     rate_limit_retries: int = 3
     rate_limit_backoff_base: float = 1.0
     quote_staleness_threshold: int = 300
     trading_window_start: int = 7
     trading_window_end: int = 10
-    trading_timezone: str = "America/New_York"
+    trading_timezone: str = "America/Los_Angeles"

@@ -49,7 +49,7 @@ class TelegramConfig:
             enabled=os.getenv("TELEGRAM_ENABLED", "false").lower() == "true",
             quiet_hours_start="22:00",
             quiet_hours_end="06:00",
-            quiet_hours_timezone="America/New_York",
+            quiet_hours_timezone="America/Los_Angeles",
             critical_bypass_quiet=True,
             duplicate_suppress_minutes=10,
         )
@@ -66,7 +66,7 @@ class TelegramConfig:
 
         quiet_hours_start = data.get("quiet_hours_start", os.getenv("TELEGRAM_QUIET_HOURS_START", "22:00"))
         quiet_hours_end = data.get("quiet_hours_end", os.getenv("TELEGRAM_QUIET_HOURS_END", "06:00"))
-        quiet_hours_timezone = data.get("quiet_hours_timezone", os.getenv("TELEGRAM_QUIET_HOURS_TIMEZONE", "America/New_York"))
+        quiet_hours_timezone = data.get("quiet_hours_timezone", os.getenv("TELEGRAM_QUIET_HOURS_TIMEZONE", "America/Los_Angeles"))
         critical_bypass_quiet = data.get("critical_bypass_quiet", os.getenv("TELEGRAM_CRITICAL_BYPASS_QUIET", "true").lower() == "true")
         duplicate_suppress_minutes = int(data.get("duplicate_suppress_minutes", os.getenv("TELEGRAM_DUPLICATE_SUPPRESS_MINUTES", "10")))
 
@@ -226,7 +226,7 @@ class Config:
     # Trading hours (§Risk_Management: limit trading window)
     trading_start_time: str = "07:00"
     trading_end_time: str = "10:00"
-    trading_timezone: str = "America/New_York"
+    trading_timezone: str = "America/Los_Angeles"
 
     # Risk parameters (§Risk_Management)
     max_position_pct: float = 5.0
@@ -359,7 +359,7 @@ class Config:
             # Trading hours
             trading_start_time=trading.get("hours", {}).get("start_time", "07:00"),
             trading_end_time=trading.get("hours", {}).get("end_time", "10:00"),
-            trading_timezone=trading.get("hours", {}).get("timezone", "America/New_York"),
+            trading_timezone=trading.get("hours", {}).get("timezone", "America/Los_Angeles"),
             # Risk parameters
             max_position_pct=float(risk.get("max_position_pct", 5.0)),
             max_daily_loss_pct=float(risk.get("max_daily_loss_pct", 3.0)),

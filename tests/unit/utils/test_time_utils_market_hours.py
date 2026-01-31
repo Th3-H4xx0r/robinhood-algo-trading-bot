@@ -33,7 +33,7 @@ class TestMarketHoursDetection:
         Pattern: tests/unit/test_time_utils.py
         """
         # GIVEN: Wednesday 10:00 AM ET (market hours)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 10, 8, 10, 0, 0))  # Wednesday 10am
 
         # WHEN: Check if market is open
@@ -53,7 +53,7 @@ class TestMarketHoursDetection:
         From: tasks.md T004 - Market open at 9:30 AM ET
         """
         # GIVEN: Friday 9:30:00 AM ET (exact market open)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 10, 10, 9, 30, 0))  # Friday 9:30am
 
         # WHEN: Check if market is open
@@ -73,7 +73,7 @@ class TestMarketHoursDetection:
         From: tasks.md T004 - Market closed (before 9:30 AM)
         """
         # GIVEN: Monday 9:29 AM ET (before market open)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 10, 6, 9, 29, 0))  # Monday 9:29am
 
         # WHEN: Check if market is open
@@ -93,7 +93,7 @@ class TestMarketHoursDetection:
         From: tasks.md T004 - Market closed (after 4:00 PM)
         """
         # GIVEN: Tuesday 4:00 PM ET (market close time - exclusive)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 10, 7, 16, 0, 0))  # Tuesday 4:00pm
 
         # WHEN: Check if market is open
@@ -113,7 +113,7 @@ class TestMarketHoursDetection:
         From: tasks.md T004 - Market closed (weekends)
         """
         # GIVEN: Saturday 10:00 AM ET (weekend)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 10, 11, 10, 0, 0))  # Saturday 10am
 
         # WHEN: Check if market is open
@@ -133,7 +133,7 @@ class TestMarketHoursDetection:
         From: tasks.md T004 - Market closed (weekends)
         """
         # GIVEN: Sunday 2:00 PM ET (weekend)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 10, 12, 14, 0, 0))  # Sunday 2pm
 
         # WHEN: Check if market is open
@@ -154,7 +154,7 @@ class TestMarketHoursDetection:
         Pattern: tests/unit/test_time_utils.py DST handling
         """
         # GIVEN: June 15, 2025 at 10:00 AM EDT (DST active)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 6, 15, 10, 0, 0))  # June 10am EDT
 
         # WHEN: Check if market is open
@@ -174,7 +174,7 @@ class TestMarketHoursDetection:
         From: tasks.md T004 - DST transitions
         """
         # GIVEN: December 15, 2025 at 10:00 AM EST (no DST)
-        et_tz = pytz.timezone("America/New_York")
+        et_tz = pytz.timezone("America/Los_Angeles")
         check_time = et_tz.localize(datetime(2025, 12, 15, 10, 0, 0))  # December 10am EST
 
         # WHEN: Check if market is open

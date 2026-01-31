@@ -136,7 +136,7 @@ class TradingBot:
         max_position_pct: float = 5.0,
         max_daily_loss_pct: float = 3.0,
         max_consecutive_losses: int = 3,
-        trading_timezone: str = "America/New_York",
+        trading_timezone: str = "America/Los_Angeles",
     ):
         """
         Initialize trading bot with safety parameters.
@@ -147,7 +147,7 @@ class TradingBot:
             max_position_pct: Maximum % of portfolio per position (§Risk_Management)
             max_daily_loss_pct: Circuit breaker: max daily loss % (§Safety_First)
             max_consecutive_losses: Circuit breaker: max consecutive losses (§Safety_First)
-            trading_timezone: Timezone for trading hours enforcement (default: America/New_York)
+            trading_timezone: Timezone for trading hours enforcement (default: America/Los_Angeles)
         """
         # T037: Store config reference for risk management access
         self.config = config

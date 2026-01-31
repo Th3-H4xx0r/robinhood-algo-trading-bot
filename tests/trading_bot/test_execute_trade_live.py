@@ -23,7 +23,7 @@ def config() -> Config:
         paper_trading=False,
         trading_start_time="07:00",
         trading_end_time="10:00",
-        trading_timezone="America/New_York",
+        trading_timezone="America/Los_Angeles",
         max_position_pct=5.0,
         max_daily_loss_pct=3.0,
         max_consecutive_losses=3,

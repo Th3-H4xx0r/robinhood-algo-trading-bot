@@ -173,7 +173,7 @@ def test_validate_timestamp_rejects_non_utc_timezone():
     from zoneinfo import ZoneInfo
 
     # Given: Timestamp with EST timezone (not UTC)
-    est_time = datetime.now(ZoneInfo("America/New_York"))
+    est_time = datetime.now(ZoneInfo("America/Los_Angeles"))
 
     # When/Then: validate_timestamp raises DataValidationError
     with pytest.raises(DataValidationError, match="Timestamp must be UTC"):

@@ -53,4 +53,4 @@ def test_market_data_config_defaults():
     assert config.quote_staleness_threshold == 300
     assert config.trading_window_start == 7
     assert config.trading_window_end == 10
-    assert config.trading_timezone == "America/New_York"
+    assert config.trading_timezone == "America/Los_Angeles"

@@ -70,7 +70,7 @@ async def test_momentum_engine_complete_scan_workflow():
 
     # GIVEN: Mock time to be in pre-market window (8:00 AM EST = 13:00 UTC on Thursday)
     premarket_time_utc = datetime(2025, 10, 16, 13, 0, 0, tzinfo=UTC)
-    EST_TZ = ZoneInfo("America/New_York")
+    EST_TZ = ZoneInfo("America/Los_Angeles")
 
     # ============================================
     # Mock CatalystDetector responses
