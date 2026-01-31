@@ -7,8 +7,8 @@ Extends existing backtest module with:
 - Multi-strategy testing
 """
 
-from trading_bot.ml.backtesting.walk_forward import WalkForwardOptimizer
-from trading_bot.ml.backtesting.validator import StrategyValidator
+from src.trading_bot.ml.backtesting.walk_forward import WalkForwardOptimizer
+from src.trading_bot.ml.backtesting.validator import StrategyValidator
 
 __all__ = [
     "WalkForwardOptimizer",

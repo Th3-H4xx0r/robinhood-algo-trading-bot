@@ -9,7 +9,7 @@ Pattern: Follows CatalystDetector pattern from momentum/catalyst_detector.py
 from collections import deque
 from datetime import datetime
 
-from trading_bot.logger import TradingLogger
+from src.trading_bot.logger import TradingLogger
 
 from .config import OrderFlowConfig
 from .data_models import OrderBookSnapshot, OrderFlowAlert
@@ -193,7 +193,7 @@ class OrderFlowDetector:
 
         # TODO: T027 - In production, integrate with RiskManager
         # Example:
-        # from trading_bot.risk_management import RiskManager
+        # from src.trading_bot.risk_management import RiskManager
         # risk_manager = RiskManager()
         # risk_manager.process_order_flow_alert(alert)
 

@@ -1,20 +1,20 @@
 """Rule-based trading strategies."""
 
-from trading_bot.ml.rules.momentum import (
+from src.trading_bot.ml.rules.momentum import (
     RSIOversoldRule,
     RSIOverboughtShortRule,
     MACDBullishCrossRule,
     MACDTrendRule,
     MomentumVolumeRule,
 )
-from trading_bot.ml.rules.mean_reversion import (
+from src.trading_bot.ml.rules.mean_reversion import (
     BollingerBounceRule,
     BollingerBreakoutRule,
     SMADeviationRule,
     ZScoreReversionRule,
     DonchianChannelBreakoutRule,
 )
-from trading_bot.ml.rules.volatility import (
+from src.trading_bot.ml.rules.volatility import (
     ATRExpansionRule,
     LowVolatilityBreakoutRule,
     KeltnerChannelRule,

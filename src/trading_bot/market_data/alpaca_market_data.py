@@ -14,7 +14,7 @@ from alpaca.data.enums import Adjustment
 from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame
 
-from trading_bot.auth import AlpacaAuth
+from src.trading_bot.auth import AlpacaAuth
 
 TimeframeStr = Literal["1m", "5m", "15m", "30m", "1h", "4h", "1d", "1w"]
 

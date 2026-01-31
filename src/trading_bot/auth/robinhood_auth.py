@@ -2,7 +2,7 @@
 Deprecated Robinhood auth shim.
 
 This module now simply re-exports the Alpaca authentication service so that
-legacy imports (`from trading_bot.auth.robinhood_auth import RobinhoodAuth`)
+legacy imports (`from src.trading_bot.auth.robinhood_auth import RobinhoodAuth`)
 continue to function while the codebase migrates to Alpaca-first naming.
 """
 
@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import warnings
 
-from trading_bot.auth.alpaca_auth import AlpacaAuth, AuthenticationError
+from src.trading_bot.auth.alpaca_auth import AlpacaAuth, AuthenticationError
 
 warnings.warn(
     "trading_bot.auth.robinhood_auth is deprecated. "

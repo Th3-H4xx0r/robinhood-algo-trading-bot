@@ -15,7 +15,7 @@ Main Components:
     - BullFlagResult: Detection result with pattern metadata and risk parameters
 
 Example:
-    from trading_bot.patterns import BullFlagDetector, BullFlagConfig
+    from src.trading_bot.patterns import BullFlagDetector, BullFlagConfig
     from decimal import Decimal
 
     # Configure detector

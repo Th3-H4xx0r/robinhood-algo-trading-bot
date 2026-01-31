@@ -5,7 +5,7 @@ import pytest
 
 def test_retry_policy_dataclass_with_defaults():
     """RetryPolicy should have sensible defaults for retry behavior."""
-    from trading_bot.error_handling import RetryPolicy, RetriableError
+    from src.trading_bot.error_handling import RetryPolicy, RetriableError
 
     # Given: A RetryPolicy with default values
     policy = RetryPolicy()
@@ -20,7 +20,7 @@ def test_retry_policy_dataclass_with_defaults():
 
 def test_retry_policy_validates_max_attempts_positive():
     """RetryPolicy should validate that max_attempts is > 0."""
-    from trading_bot.error_handling import RetryPolicy
+    from src.trading_bot.error_handling import RetryPolicy
 
     # Given/When: Attempting to create policy with invalid max_attempts
     # Then: Should raise ValueError
@@ -33,7 +33,7 @@ def test_retry_policy_validates_max_attempts_positive():
 
 def test_predefined_policies_exist():
     """Framework should provide predefined retry policies."""
-    from trading_bot.error_handling import (
+    from src.trading_bot.error_handling import (
         DEFAULT_POLICY,
         AGGRESSIVE_POLICY,
         CONSERVATIVE_POLICY,

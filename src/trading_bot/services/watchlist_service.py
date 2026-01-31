@@ -22,13 +22,13 @@ from decimal import Decimal
 
 import robin_stocks.robinhood as r
 
-from trading_bot.schemas.screener_schemas import ScreenerQuery
-from trading_bot.schemas.watchlist_schemas import (
+from src.trading_bot.schemas.screener_schemas import ScreenerQuery
+from src.trading_bot.schemas.watchlist_schemas import (
     GeneratedWatchlist,
     WatchlistConfig,
     WatchlistTier,
 )
-from trading_bot.services.screener_service import ScreenerService
+from src.trading_bot.services.screener_service import ScreenerService
 
 logger = logging.getLogger(__name__)
 

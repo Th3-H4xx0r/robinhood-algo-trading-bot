@@ -17,10 +17,10 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from trading_bot.dashboard.data_provider import DashboardDataProvider
-from trading_bot.dashboard.export_generator import ExportGenerator
-from trading_bot.dashboard.metrics_calculator import MetricsCalculator
-from trading_bot.dashboard.models import (
+from src.trading_bot.dashboard.data_provider import DashboardDataProvider
+from src.trading_bot.dashboard.export_generator import ExportGenerator
+from src.trading_bot.dashboard.metrics_calculator import MetricsCalculator
+from src.trading_bot.dashboard.models import (
     AccountStatus,
     DashboardSnapshot,
     DashboardTargets,
@@ -34,7 +34,7 @@ def mock_account_data() -> Mock:
     """Create mock AccountData service with realistic data."""
     from datetime import datetime, timezone
 
-    from trading_bot.account.account_data import AccountBalance, Position
+    from src.trading_bot.account.account_data import AccountBalance, Position
 
     mock = Mock()
     mock.get_buying_power.return_value = 10250.50

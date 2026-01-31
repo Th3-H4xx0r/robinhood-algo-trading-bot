@@ -4,9 +4,9 @@ from unittest.mock import AsyncMock, Mock, patch
 
 import pytest
 
-from trading_bot.telegram.command_handler import TelegramCommandHandler
-from trading_bot.telegram.middleware import CommandAuthMiddleware, CommandRateLimiter
-from trading_bot.telegram.response_formatter import ResponseFormatter
+from src.trading_bot.telegram.command_handler import TelegramCommandHandler
+from src.trading_bot.telegram.middleware import CommandAuthMiddleware, CommandRateLimiter
+from src.trading_bot.telegram.response_formatter import ResponseFormatter
 
 
 @pytest.fixture

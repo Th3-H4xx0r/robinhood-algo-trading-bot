@@ -24,14 +24,14 @@ import pandas as pd
 import yfinance as yf
 
 # ML strategy components
-from trading_bot.ml.config import MLConfig
-from trading_bot.ml.features import FeatureExtractor
-from trading_bot.ml.generators import (
+from src.trading_bot.ml.config import MLConfig
+from src.trading_bot.ml.features import FeatureExtractor
+from src.trading_bot.ml.generators import (
     GeneticProgrammingGenerator,
     LLMGuidedGenerator,
 )
-from trading_bot.ml.backtesting import StrategyValidator, WalkForwardOptimizer
-from trading_bot.ml.selection import StrategySelector, EnsembleBuilder
+from src.trading_bot.ml.backtesting import StrategyValidator, WalkForwardOptimizer
+from src.trading_bot.ml.selection import StrategySelector, EnsembleBuilder
 
 # Configure logging
 logging.basicConfig(

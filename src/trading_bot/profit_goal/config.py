@@ -16,7 +16,7 @@ import logging
 import os
 from decimal import Decimal, InvalidOperation
 
-from trading_bot.profit_goal.models import ProfitGoalConfig
+from src.trading_bot.profit_goal.models import ProfitGoalConfig
 
 logger = logging.getLogger(__name__)
 

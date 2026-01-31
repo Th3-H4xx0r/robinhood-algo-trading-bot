@@ -7,7 +7,7 @@ All exceptions inherit from NonRetriableError since data validation and trading 
 violations should fail fast without retry.
 """
 
-from trading_bot.error_handling.exceptions import NonRetriableError
+from src.trading_bot.error_handling.exceptions import NonRetriableError
 
 
 class DataValidationError(NonRetriableError):

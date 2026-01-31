@@ -10,9 +10,9 @@ from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
 
-from trading_bot.ml.config import MLConfig
-from trading_bot.ml.features import FeatureExtractor
-from trading_bot.ml.generators import GeneticProgrammingGenerator
+from src.trading_bot.ml.config import MLConfig
+from src.trading_bot.ml.features import FeatureExtractor
+from src.trading_bot.ml.generators import GeneticProgrammingGenerator
 
 # Configure logging
 logging.basicConfig(

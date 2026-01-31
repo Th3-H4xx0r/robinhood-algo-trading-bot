@@ -14,10 +14,10 @@ from decimal import Decimal
 
 import pytest
 
-from trading_bot.market_data.data_models import PriceBar
-from trading_bot.risk_management.atr_calculator import ATRCalculator
-from trading_bot.risk_management.calculator import calculate_position_plan
-from trading_bot.risk_management.models import ATRStopData, PositionPlan
+from src.trading_bot.market_data.data_models import PriceBar
+from src.trading_bot.risk_management.atr_calculator import ATRCalculator
+from src.trading_bot.risk_management.calculator import calculate_position_plan
+from src.trading_bot.risk_management.models import ATRStopData, PositionPlan
 
 
 def test_atr_workflow_end_to_end():
@@ -190,7 +190,7 @@ def test_atr_workflow_with_insufficient_data():
     From: specs/atr-stop-adjustment/tasks.md T028 (error path)
     Pattern: TDD RED phase - test MUST FAIL
     """
-    from trading_bot.risk_management.exceptions import ATRCalculationError
+    from src.trading_bot.risk_management.exceptions import ATRCalculationError
 
     # Create only 10 price bars (insufficient for 14-period ATR)
     base_timestamp = datetime.now(UTC)
@@ -240,7 +240,7 @@ def test_atr_workflow_stop_validation_integration():
     From: specs/atr-stop-adjustment/tasks.md T028 (validation path)
     Pattern: TDD RED phase - test MUST FAIL
     """
-    from trading_bot.risk_management.exceptions import PositionPlanningError
+    from src.trading_bot.risk_management.exceptions import PositionPlanningError
 
     # Setup: Calculate stop that would be too tight (0.4% distance)
     entry_price = Decimal("250.00")

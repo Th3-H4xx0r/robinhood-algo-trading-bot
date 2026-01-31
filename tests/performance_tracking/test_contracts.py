@@ -10,7 +10,7 @@ from pathlib import Path
 from datetime import datetime
 from decimal import Decimal
 
-from trading_bot.performance.models import PerformanceSummary, AlertEvent
+from src.trading_bot.performance.models import PerformanceSummary, AlertEvent
 
 
 class TestSchemaValidation:
@@ -60,7 +60,7 @@ class TestSchemaValidation:
         )
 
         # Serialize (implementation pending)
-        from trading_bot.performance.tracker import PerformanceTracker
+        from src.trading_bot.performance.tracker import PerformanceTracker
 
         tracker = PerformanceTracker()
         json_data = tracker.serialize_summary(summary)
@@ -101,7 +101,7 @@ class TestSchemaValidation:
         )
 
         # Serialize (implementation pending)
-        from trading_bot.performance.alerts import AlertEvaluator
+        from src.trading_bot.performance.alerts import AlertEvaluator
 
         evaluator = AlertEvaluator()
         json_data = evaluator.serialize_alert(alert)

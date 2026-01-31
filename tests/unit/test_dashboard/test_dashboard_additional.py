@@ -15,12 +15,12 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from trading_bot.dashboard import dashboard as dashboard_module
-from trading_bot.dashboard.data_provider import DashboardDataProvider, ProviderConfig
-from trading_bot.dashboard.display_renderer import DisplayRenderer
-from trading_bot.dashboard.export_generator import ExportGenerator
-from trading_bot.dashboard.metrics_calculator import MetricsCalculator
-from trading_bot.dashboard.models import (
+from src.trading_bot.dashboard import dashboard as dashboard_module
+from src.trading_bot.dashboard.data_provider import DashboardDataProvider, ProviderConfig
+from src.trading_bot.dashboard.display_renderer import DisplayRenderer
+from src.trading_bot.dashboard.export_generator import ExportGenerator
+from src.trading_bot.dashboard.metrics_calculator import MetricsCalculator
+from src.trading_bot.dashboard.models import (
     DashboardSnapshot,
     DashboardTargets,
     PerformanceMetrics,

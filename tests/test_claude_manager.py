@@ -16,7 +16,7 @@ from datetime import datetime
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from trading_bot.llm import (
+from src.trading_bot.llm import (
     ClaudeCodeManager,
     LLMConfig,
     LLMResponse,

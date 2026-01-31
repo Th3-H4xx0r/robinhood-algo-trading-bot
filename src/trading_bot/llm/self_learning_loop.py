@@ -15,8 +15,8 @@ from datetime import datetime, timedelta
 from typing import Dict, Any, List
 from pathlib import Path
 
-from trading_bot.llm.memory_service import AgentMemory
-from trading_bot.llm.agents import LearningAgent, StrategyBuilderAgent
+from src.trading_bot.llm.memory_service import AgentMemory
+from src.trading_bot.llm.agents import LearningAgent, StrategyBuilderAgent
 
 logger = logging.getLogger(__name__)
 

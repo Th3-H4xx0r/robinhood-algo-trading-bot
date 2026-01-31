@@ -24,10 +24,10 @@ from unittest.mock import Mock, patch, MagicMock, call
 
 import pytest
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.error_handling.exceptions import RetriableError
-from trading_bot.health.health_logger import HealthCheckLogger
-from trading_bot.health.session_health import (
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.error_handling.exceptions import RetriableError
+from src.trading_bot.health.health_logger import HealthCheckLogger
+from src.trading_bot.health.session_health import (
     HealthCheckResult,
     SessionHealthMonitor,
     SessionHealthStatus,

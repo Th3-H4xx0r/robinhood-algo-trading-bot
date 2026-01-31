@@ -16,11 +16,11 @@ from unittest.mock import Mock, patch
 import pytest
 import yaml
 
-from trading_bot.account.account_data import AccountBalance, Position
-from trading_bot.dashboard.data_provider import DashboardDataProvider, ProviderConfig
-from trading_bot.dashboard.display_renderer import DisplayRenderer
-from trading_bot.dashboard.export_generator import ExportGenerator
-from trading_bot.dashboard.metrics_calculator import MetricsCalculator
+from src.trading_bot.account.account_data import AccountBalance, Position
+from src.trading_bot.dashboard.data_provider import DashboardDataProvider, ProviderConfig
+from src.trading_bot.dashboard.display_renderer import DisplayRenderer
+from src.trading_bot.dashboard.export_generator import ExportGenerator
+from src.trading_bot.dashboard.metrics_calculator import MetricsCalculator
 
 
 @pytest.fixture

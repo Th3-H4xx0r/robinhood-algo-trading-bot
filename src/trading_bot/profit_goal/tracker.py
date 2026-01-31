@@ -19,8 +19,8 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Optional
 
-from trading_bot.performance.tracker import PerformanceTracker
-from trading_bot.profit_goal.models import (
+from src.trading_bot.performance.tracker import PerformanceTracker
+from src.trading_bot.profit_goal.models import (
     ProfitGoalConfig,
     DailyProfitState,
     ProfitProtectionEvent,

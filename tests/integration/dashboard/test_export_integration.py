@@ -14,8 +14,8 @@ from pathlib import Path
 
 import pytest
 
-from trading_bot.dashboard.export_generator import ExportGenerator
-from trading_bot.dashboard.models import (
+from src.trading_bot.dashboard.export_generator import ExportGenerator
+from src.trading_bot.dashboard.models import (
     AccountStatus,
     DashboardSnapshot,
     DashboardTargets,

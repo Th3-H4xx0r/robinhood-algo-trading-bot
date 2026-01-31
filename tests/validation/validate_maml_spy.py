@@ -30,12 +30,12 @@ import torch
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.config import Config
-from trading_bot.market_data.market_data_service import MarketDataService
-from trading_bot.ml.features.multi_timeframe import MultiTimeframeExtractor
-from trading_bot.ml.neural_models import HierarchicalTimeframeNet
-from trading_bot.ml.meta_learning import (
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.config import Config
+from src.trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.ml.features.multi_timeframe import MultiTimeframeExtractor
+from src.trading_bot.ml.neural_models import HierarchicalTimeframeNet
+from src.trading_bot.ml.meta_learning import (
     MAML,
     MAMLConfig,
     MarketRegimeDetector,
@@ -185,7 +185,7 @@ def main():
     print(f"{'='*80}\n")
 
     # Get actual feature count
-    from trading_bot.ml.models import FeatureSet
+    from src.trading_bot.ml.models import FeatureSet
     dummy_fs = FeatureSet(timestamp=None, symbol="TEST")
     actual_features_per_tf = len(dummy_fs.to_array())
 

@@ -1,7 +1,7 @@
 import pytest
 from alpaca.data.timeframe import TimeFrame
 
-from trading_bot.market_data.alpaca_market_data import AlpacaMarketData
+from src.trading_bot.market_data.alpaca_market_data import AlpacaMarketData
 
 
 def test_map_timeframe_valid_mappings():

@@ -7,7 +7,7 @@ Tests T010, T011 - RED phase
 import pytest
 from pathlib import Path
 
-from trading_bot.performance.cli import main
+from src.trading_bot.performance.cli import main
 
 
 class TestCLIDailySummary:

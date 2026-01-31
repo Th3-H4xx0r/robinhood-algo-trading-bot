@@ -15,11 +15,11 @@ Requirements:
 
 from pathlib import Path
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.account.account_data import AccountData
-from trading_bot.logging.query_helper import TradeQueryHelper
-from trading_bot.dashboard import load_targets, run_dashboard_loop
-from trading_bot.logger import setup_logging
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.account.account_data import AccountData
+from src.trading_bot.logging.query_helper import TradeQueryHelper
+from src.trading_bot.dashboard import load_targets, run_dashboard_loop
+from src.trading_bot.logger import setup_logging
 
 
 def main():

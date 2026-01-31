@@ -16,14 +16,14 @@ from unittest.mock import MagicMock, Mock, patch
 
 import pytest
 
-from trading_bot.account.account_data import AccountBalance, Position
-from trading_bot.dashboard.dashboard import run_dashboard_loop
-from trading_bot.dashboard.data_provider import DashboardDataProvider
-from trading_bot.dashboard.display_renderer import DisplayRenderer
-from trading_bot.dashboard.export_generator import ExportGenerator
-from trading_bot.dashboard.metrics_calculator import MetricsCalculator
-from trading_bot.dashboard.models import DashboardTargets
-from trading_bot.logging.trade_record import TradeRecord
+from src.trading_bot.account.account_data import AccountBalance, Position
+from src.trading_bot.dashboard.dashboard import run_dashboard_loop
+from src.trading_bot.dashboard.data_provider import DashboardDataProvider
+from src.trading_bot.dashboard.display_renderer import DisplayRenderer
+from src.trading_bot.dashboard.export_generator import ExportGenerator
+from src.trading_bot.dashboard.metrics_calculator import MetricsCalculator
+from src.trading_bot.dashboard.models import DashboardTargets
+from src.trading_bot.logging.trade_record import TradeRecord
 
 if TYPE_CHECKING:
     from rich.console import Console

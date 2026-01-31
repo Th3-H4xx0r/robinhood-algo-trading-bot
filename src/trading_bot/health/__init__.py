@@ -11,7 +11,7 @@ Exports:
 
 from __future__ import annotations
 
-from trading_bot.health.session_health import (
+from src.trading_bot.health.session_health import (
     HealthCheckResult,
     SessionHealthMonitor,
     SessionHealthStatus,

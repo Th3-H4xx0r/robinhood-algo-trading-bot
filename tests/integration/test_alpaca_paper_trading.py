@@ -423,8 +423,8 @@ class AlpacaPaperTradingTester:
 
         try:
             import asyncio
-            from trading_bot.momentum.catalyst_detector import CatalystDetector
-            from trading_bot.momentum.config import MomentumConfig
+            from src.trading_bot.momentum.catalyst_detector import CatalystDetector
+            from src.trading_bot.momentum.config import MomentumConfig
 
             # Create config and detector
             config = MomentumConfig.from_env()

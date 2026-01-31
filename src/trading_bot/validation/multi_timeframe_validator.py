@@ -12,10 +12,10 @@ from typing import Any, Dict, List, Optional, cast
 
 import pandas as pd
 
-from trading_bot.error_handling.policies import DEFAULT_POLICY
-from trading_bot.error_handling.retry import with_retry
-from trading_bot.indicators.service import TechnicalIndicatorsService
-from trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.error_handling.policies import DEFAULT_POLICY
+from src.trading_bot.error_handling.retry import with_retry
+from src.trading_bot.indicators.service import TechnicalIndicatorsService
+from src.trading_bot.market_data.market_data_service import MarketDataService
 
 from .config import MultiTimeframeConfig
 from .logger import TimeframeValidationLogger

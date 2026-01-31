@@ -8,9 +8,9 @@ This module ensures data integrity through validation of all market data
 (timestamps, bounds, completeness) and implements rate limit protection.
 
 Example usage:
-    from trading_bot.auth import AlpacaAuth
-    from trading_bot.market_data import MarketDataService, MarketDataConfig
-    from trading_bot.config import Config
+    from src.trading_bot.auth import AlpacaAuth
+    from src.trading_bot.market_data import MarketDataService, MarketDataConfig
+    from src.trading_bot.config import Config
 
     config = Config.from_env_and_json()
     auth = AlpacaAuth(config)
@@ -22,11 +22,11 @@ Example usage:
 """
 
 # T062: Package exports - complete market_data module public API
-from trading_bot.market_data.data_models import MarketDataConfig, MarketStatus, Quote
-from trading_bot.market_data.exceptions import DataValidationError, TradingHoursError
-from trading_bot.market_data.market_data_service import MarketDataService
-from trading_bot.market_data.fmp_client import FMPClient, FMPRateLimitExceeded
-from trading_bot.market_data.validators import (
+from src.trading_bot.market_data.data_models import MarketDataConfig, MarketStatus, Quote
+from src.trading_bot.market_data.exceptions import DataValidationError, TradingHoursError
+from src.trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.market_data.fmp_client import FMPClient, FMPRateLimitExceeded
+from src.trading_bot.market_data.validators import (
     validate_historical_data,
     validate_price,
     validate_quote,

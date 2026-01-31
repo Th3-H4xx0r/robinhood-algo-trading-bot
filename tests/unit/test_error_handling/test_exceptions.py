@@ -5,7 +5,7 @@ import pytest
 
 def test_retriable_error_can_be_raised_and_caught():
     """RetriableError should be raisable and catchable as an exception."""
-    from trading_bot.error_handling import RetriableError
+    from src.trading_bot.error_handling import RetriableError
 
     # Given: A function that raises RetriableError
     def raises_retriable():
@@ -22,7 +22,7 @@ def test_retriable_error_can_be_raised_and_caught():
 
 def test_non_retriable_error_can_be_raised_and_caught():
     """NonRetriableError should be raisable and catchable as an exception."""
-    from trading_bot.error_handling import NonRetriableError
+    from src.trading_bot.error_handling import NonRetriableError
 
     # Given: A function that raises NonRetriableError
     def raises_non_retriable():
@@ -39,7 +39,7 @@ def test_non_retriable_error_can_be_raised_and_caught():
 
 def test_rate_limit_error_stores_retry_after_value():
     """RateLimitError should store retry_after value from HTTP 429."""
-    from trading_bot.error_handling import RateLimitError
+    from src.trading_bot.error_handling import RateLimitError
 
     # Given: Rate limit error with retry_after value
     error = RateLimitError("Rate limit exceeded", retry_after=60)
@@ -51,7 +51,7 @@ def test_rate_limit_error_stores_retry_after_value():
 
 def test_rate_limit_error_inherits_from_retriable():
     """RateLimitError should inherit from RetriableError for retry logic."""
-    from trading_bot.error_handling import RateLimitError, RetriableError
+    from src.trading_bot.error_handling import RateLimitError, RetriableError
 
     # Given: A RateLimitError instance
     error = RateLimitError("Rate limit", retry_after=30)
@@ -63,7 +63,7 @@ def test_rate_limit_error_inherits_from_retriable():
 
 def test_existing_custom_errors_can_inherit_from_framework():
     """Existing custom errors should be able to inherit from framework base classes."""
-    from trading_bot.error_handling import RetriableError, NonRetriableError
+    from src.trading_bot.error_handling import RetriableError, NonRetriableError
 
     # Given: Custom error classes that inherit from framework
     class CustomRetriableError(RetriableError):

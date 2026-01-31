@@ -7,8 +7,8 @@ import logging
 import numpy as np
 from numpy.typing import NDArray
 
-from trading_bot.ml.config import SelectionConfig
-from trading_bot.ml.models import MLStrategy, StrategyEnsemble, StrategyType
+from src.trading_bot.ml.config import SelectionConfig
+from src.trading_bot.ml.models import MLStrategy, StrategyEnsemble, StrategyType
 
 logger = logging.getLogger(__name__)
 

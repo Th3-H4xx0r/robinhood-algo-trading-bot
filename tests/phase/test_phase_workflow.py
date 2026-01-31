@@ -423,7 +423,7 @@ class TestPhaseWorkflowIntegration:
         manager.config.current_phase = "trial"
 
         # Mock metrics: 3 consecutive losses (trigger downgrade)
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="trial",
@@ -477,7 +477,7 @@ class TestPhaseWorkflowIntegration:
         manager.config.current_phase = "scaling"
 
         # Mock metrics: Win rate below 55% threshold
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="scaling",
@@ -520,7 +520,7 @@ class TestPhaseWorkflowIntegration:
         manager.config.current_phase = "trial"
 
         # Mock metrics: Daily loss exceeds threshold
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="trial",
@@ -563,7 +563,7 @@ class TestPhaseWorkflowIntegration:
         manager.config.current_phase = "trial"
 
         # Mock metrics: Good performance (no downgrade needed)
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="trial",

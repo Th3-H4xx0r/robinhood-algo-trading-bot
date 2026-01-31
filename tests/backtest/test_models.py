@@ -23,7 +23,7 @@ from decimal import Decimal
 
 import pytest
 
-from trading_bot.backtest.models import (
+from src.trading_bot.backtest.models import (
     BacktestConfig,
     BacktestResult,
     BacktestState,
@@ -33,7 +33,7 @@ from trading_bot.backtest.models import (
     StrategyAllocation,
     Trade,
 )
-from trading_bot.backtest.strategy_protocol import IStrategy
+from src.trading_bot.backtest.strategy_protocol import IStrategy
 
 
 class DummyStrategy(IStrategy):
@@ -788,7 +788,7 @@ class TestOrchestratorConfigValidation:
 
     def test_orchestrator_config_defaults(self):
         """Test that OrchestratorConfig has correct default values."""
-        from trading_bot.backtest.models import OrchestratorConfig
+        from src.trading_bot.backtest.models import OrchestratorConfig
 
         config = OrchestratorConfig()
         assert config.logging_level == "INFO"
@@ -796,7 +796,7 @@ class TestOrchestratorConfigValidation:
 
     def test_orchestrator_config_valid_logging_levels(self):
         """Test that valid logging levels are accepted."""
-        from trading_bot.backtest.models import OrchestratorConfig
+        from src.trading_bot.backtest.models import OrchestratorConfig
 
         for level in ["DEBUG", "INFO", "WARNING", "ERROR"]:
             config = OrchestratorConfig(logging_level=level)
@@ -804,21 +804,21 @@ class TestOrchestratorConfigValidation:
 
     def test_orchestrator_config_validates_logging_level(self):
         """Test that invalid logging level raises ValueError."""
-        from trading_bot.backtest.models import OrchestratorConfig
+        from src.trading_bot.backtest.models import OrchestratorConfig
 
         with pytest.raises(ValueError, match="logging_level .* must be one of"):
             OrchestratorConfig(logging_level="INVALID")
 
     def test_orchestrator_config_validates_logging_level_case_sensitive(self):
         """Test that logging level validation is case-sensitive."""
-        from trading_bot.backtest.models import OrchestratorConfig
+        from src.trading_bot.backtest.models import OrchestratorConfig
 
         with pytest.raises(ValueError, match="logging_level .* must be one of"):
             OrchestratorConfig(logging_level="info")  # lowercase not allowed
 
     def test_orchestrator_config_custom_values(self):
         """Test that custom values can be set."""
-        from trading_bot.backtest.models import OrchestratorConfig
+        from src.trading_bot.backtest.models import OrchestratorConfig
 
         config = OrchestratorConfig(logging_level="DEBUG", validate_weights=False)
         assert config.logging_level == "DEBUG"
@@ -881,7 +881,7 @@ class TestOrchestratorResultValidation:
 
     def test_valid_orchestrator_result(self):
         """Test that valid OrchestratorResult passes all validations."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
         result1 = self._create_sample_backtest_result("strategy1")
@@ -904,7 +904,7 @@ class TestOrchestratorResultValidation:
 
     def test_empty_strategy_results_raises_error(self):
         """Test that empty strategy_results raises ValueError."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
 
@@ -917,7 +917,7 @@ class TestOrchestratorResultValidation:
 
     def test_comparison_table_extra_strategy_raises_error(self):
         """Test that comparison_table with extra strategy ID raises ValueError."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
         result1 = self._create_sample_backtest_result("strategy1")
@@ -937,7 +937,7 @@ class TestOrchestratorResultValidation:
 
     def test_invalid_backtest_result_type_raises_error(self):
         """Test that non-BacktestResult value raises ValueError."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
 
@@ -950,7 +950,7 @@ class TestOrchestratorResultValidation:
 
     def test_orchestrator_result_aggregates_correctly(self):
         """Test that aggregate_metrics are calculated correctly."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         # Create two strategies with known metrics
         aggregate_metrics = self._create_sample_performance_metrics()
@@ -973,7 +973,7 @@ class TestOrchestratorResultValidation:
 
     def test_get_strategy_result_returns_correct_result(self):
         """Test that get_strategy_result() returns the correct BacktestResult."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
         result1 = self._create_sample_backtest_result("strategy1")
@@ -997,7 +997,7 @@ class TestOrchestratorResultValidation:
 
     def test_get_strategy_result_raises_key_error_for_missing_strategy(self):
         """Test that get_strategy_result() raises KeyError for non-existent strategy."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
         result1 = self._create_sample_backtest_result("strategy1")
@@ -1017,7 +1017,7 @@ class TestOrchestratorResultValidation:
 
     def test_to_dict_serialization(self):
         """Test that to_dict() returns properly formatted dictionary."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
         result1 = self._create_sample_backtest_result("strategy1")
@@ -1058,7 +1058,7 @@ class TestOrchestratorResultValidation:
 
     def test_to_dict_converts_decimals_to_floats(self):
         """Test that to_dict() converts Decimal values to float for JSON compatibility."""
-        from trading_bot.backtest.models import OrchestratorResult
+        from src.trading_bot.backtest.models import OrchestratorResult
 
         aggregate_metrics = self._create_sample_performance_metrics()
         result1 = self._create_sample_backtest_result("strategy1")

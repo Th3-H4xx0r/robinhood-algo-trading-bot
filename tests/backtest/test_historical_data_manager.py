@@ -16,8 +16,8 @@ from unittest.mock import Mock, patch, MagicMock
 import pytest
 import pandas as pd
 
-from trading_bot.backtest.models import HistoricalDataBar
-from trading_bot.backtest.exceptions import InsufficientDataError
+from src.trading_bot.backtest.models import HistoricalDataBar
+from src.trading_bot.backtest.exceptions import InsufficientDataError
 
 
 class TestCachePersistence:
@@ -68,7 +68,7 @@ class TestCachePersistence:
         # ACT & ASSERT: Try to import HistoricalDataManager
         # RED PHASE: This will fail because the module doesn't exist yet
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # If import succeeds, we're in GREEN/REFACTOR phase - run the full test
             # Create manager instance with custom cache directory
@@ -157,7 +157,7 @@ class TestCachePersistence:
         cache_dir = tmp_path / ".backtest_cache"
 
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # Expected behavior for GREEN phase:
             manager = HistoricalDataManager(cache_dir=str(cache_dir), cache_enabled=False)
@@ -194,7 +194,7 @@ class TestCachePersistence:
         cache_dir = tmp_path / ".backtest_cache"
 
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             manager = HistoricalDataManager(cache_dir=str(cache_dir))
 
@@ -304,7 +304,7 @@ class TestAlpacaFetch:
         mock_alpaca_client_class.return_value = mock_client_instance
 
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # Given: HistoricalDataManager initialized (cache disabled to force API call)
             manager = HistoricalDataManager(api_key="test_key", api_secret="test_secret", cache_enabled=False)
@@ -368,7 +368,7 @@ class TestAlpacaFetch:
         TDD RED PHASE: Expected to FAIL (HistoricalDataManager doesn't exist).
         """
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # Given: HistoricalDataManager initialized (cache disabled to force API call)
             manager = HistoricalDataManager(api_key="test_key", api_secret="test_secret", cache_enabled=False)
@@ -394,7 +394,7 @@ class TestAlpacaFetch:
         TDD RED PHASE: Expected to FAIL (HistoricalDataManager doesn't exist).
         """
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # Given: HistoricalDataManager initialized (cache disabled to force API call)
             manager = HistoricalDataManager(api_key="test_key", api_secret="test_secret", cache_enabled=False)
@@ -419,7 +419,7 @@ class TestAlpacaFetch:
 
         TDD RED PHASE: Expected to FAIL (HistoricalDataManager doesn't exist).
         """
-        from trading_bot.backtest.exceptions import InsufficientDataError
+        from src.trading_bot.backtest.exceptions import InsufficientDataError
 
         # Setup mock to raise API error
         mock_client_instance = MagicMock()
@@ -427,7 +427,7 @@ class TestAlpacaFetch:
         mock_alpaca_client_class.return_value = mock_client_instance
 
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # Given: HistoricalDataManager initialized (cache disabled to force API call)
             manager = HistoricalDataManager(api_key="test_key", api_secret="test_secret", cache_enabled=False)
@@ -453,7 +453,7 @@ class TestAlpacaFetch:
         TDD RED PHASE: Expected to FAIL (HistoricalDataManager doesn't exist).
         """
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # Given: HistoricalDataManager initialized (cache disabled to force API call)
             manager = HistoricalDataManager(api_key="test_key", api_secret="test_secret", cache_enabled=False)
@@ -478,7 +478,7 @@ class TestAlpacaFetch:
 
         TDD RED PHASE: Expected to FAIL (HistoricalDataManager doesn't exist).
         """
-        from trading_bot.backtest.exceptions import InsufficientDataError
+        from src.trading_bot.backtest.exceptions import InsufficientDataError
 
         # Setup mock to return empty dict (no data for symbol)
         mock_client_instance = MagicMock()
@@ -486,7 +486,7 @@ class TestAlpacaFetch:
         mock_alpaca_client_class.return_value = mock_client_instance
 
         try:
-            from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+            from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
             # Given: HistoricalDataManager initialized (cache disabled to force API call)
             manager = HistoricalDataManager(api_key="test_key", api_secret="test_secret", cache_enabled=False)
@@ -520,7 +520,7 @@ class TestYahooFinanceFallback:
         - And: Returns List[HistoricalDataBar] with Yahoo Finance data
         - And: No exception is raised to the caller (fallback is transparent)
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
         # ARRANGE: Configure test parameters
         symbol = "AAPL"
@@ -606,7 +606,7 @@ class TestYahooFinanceFallback:
         - When: HistoricalDataManager.fetch_data() is called
         - Then: Raises InsufficientDataError with descriptive message
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
         # ARRANGE
         symbol = "AAPL"
@@ -660,7 +660,7 @@ class TestYahooFinanceFallback:
         - And: Data is chronologically ordered
         - And: OHLCV values are valid Decimals/ints
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
         # ARRANGE: Test parameters using stable ETF symbol
         symbol = "SPY"  # Use SPY (S&P 500 ETF) - stable, liquid, always available
@@ -764,8 +764,8 @@ class TestDataValidation:
         """
         # Import will fail because HistoricalDataManager doesn't exist yet
         # This is intentional for TDD RED phase
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
-        from trading_bot.backtest.exceptions import DataQualityError
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.exceptions import DataQualityError
 
         # Given: Data with 10-day gap (2025-01-02 to 2025-01-15)
         data_with_gaps = [
@@ -806,8 +806,8 @@ class TestDataValidation:
 
         This is RED phase - method doesn't exist yet, test will fail.
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
-        from trading_bot.backtest.exceptions import DataQualityError
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.exceptions import DataQualityError
 
         # Given: Raw data with negative price (simulating bad API data)
         raw_data = [
@@ -849,7 +849,7 @@ class TestDataValidation:
         This is RED phase - method doesn't exist yet, test will fail.
         """
         import logging
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
         # Given: Data with zero volume on second bar
         data_with_zero_volume = [
@@ -893,8 +893,8 @@ class TestDataValidation:
 
         This is RED phase - method doesn't exist yet, test will fail.
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
-        from trading_bot.backtest.exceptions import DataQualityError
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.exceptions import DataQualityError
 
         # Given: Raw data with high < low (bypassing HistoricalDataBar validation)
         raw_data = [
@@ -934,8 +934,8 @@ class TestDataValidation:
 
         This is RED phase - method doesn't exist yet, test will fail.
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
-        from trading_bot.backtest.exceptions import DataQualityError
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.exceptions import DataQualityError
 
         # Given: Data with timestamps out of order (2025-01-05 before 2025-01-03)
         non_chronological_data = [
@@ -984,7 +984,7 @@ class TestDataValidation:
 
         This is RED phase - method doesn't exist yet, test will fail.
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
 
         # Given: Clean data - consecutive trading days (Mon-Fri)
         clean_data = [
@@ -1036,8 +1036,8 @@ class TestDataValidation:
 
         This is RED phase - method doesn't exist yet, test will fail.
         """
-        from trading_bot.backtest.historical_data_manager import HistoricalDataManager
-        from trading_bot.backtest.exceptions import DataQualityError
+        from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
+        from src.trading_bot.backtest.exceptions import DataQualityError
 
         # Given: Data with both gap and negative price
         raw_data_with_multiple_issues = [

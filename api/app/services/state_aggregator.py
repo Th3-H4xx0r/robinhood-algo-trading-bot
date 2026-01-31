@@ -23,14 +23,14 @@ from api.app.schemas.state import (
 
 # Optional integrations - gracefully handle missing modules
 try:
-    from trading_bot.health.session_health import SessionHealthMonitor
+    from src.trading_bot.health.session_health import SessionHealthMonitor
     HAS_HEALTH_MONITOR = True
 except ImportError:
     SessionHealthMonitor = None
     HAS_HEALTH_MONITOR = False
 
 try:
-    from trading_bot.error_handling.circuit_breaker import circuit_breaker
+    from src.trading_bot.error_handling.circuit_breaker import circuit_breaker
     HAS_CIRCUIT_BREAKER = True
 except ImportError:
     circuit_breaker = None

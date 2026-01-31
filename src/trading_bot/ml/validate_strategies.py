@@ -20,12 +20,12 @@ import logging
 import sys
 from pathlib import Path
 
-from trading_bot.auth import AlpacaAuth
-from trading_bot.config import Config
-from trading_bot.market_data.market_data_service import MarketDataService
-from trading_bot.ml.backtesting.validator import StrategyValidator
-from trading_bot.ml.config import BacktestConfig
-from trading_bot.ml.models import MLStrategy, StrategyGene, StrategyMetrics, StrategyStatus, StrategyType
+from src.trading_bot.auth import AlpacaAuth
+from src.trading_bot.config import Config
+from src.trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.ml.backtesting.validator import StrategyValidator
+from src.trading_bot.ml.config import BacktestConfig
+from src.trading_bot.ml.models import MLStrategy, StrategyGene, StrategyMetrics, StrategyStatus, StrategyType
 
 logging.basicConfig(
     level=logging.INFO,

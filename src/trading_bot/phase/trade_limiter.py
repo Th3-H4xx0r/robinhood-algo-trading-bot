@@ -13,8 +13,8 @@ Tasks: T075-T078 (GREEN phase)
 from datetime import date, datetime, time, timedelta, timezone
 from typing import Dict, Optional
 
-from trading_bot.config import Config
-from trading_bot.phase.models import Phase
+from src.trading_bot.config import Config
+from src.trading_bot.phase.models import Phase
 
 
 class TradeLimitExceeded(Exception):

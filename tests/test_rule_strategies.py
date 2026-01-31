@@ -2,8 +2,8 @@
 """Quick test script for rule-based strategies."""
 
 import pandas as pd
-from trading_bot.ml.generators.rule_based import RuleBasedGenerator
-from trading_bot.data import PolygonDataFetcher
+from src.trading_bot.ml.generators.rule_based import RuleBasedGenerator
+from src.trading_bot.data import PolygonDataFetcher
 
 # Fetch SPY data
 print("Fetching SPY data...")

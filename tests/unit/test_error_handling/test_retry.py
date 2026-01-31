@@ -7,7 +7,7 @@ from unittest.mock import Mock, call
 
 def test_decorator_wraps_function_successfully():
     """@with_retry should preserve function metadata using functools.wraps."""
-    from trading_bot.error_handling import with_retry
+    from src.trading_bot.error_handling import with_retry
 
     # Given: A function decorated with @with_retry
     @with_retry()
@@ -23,7 +23,7 @@ def test_decorator_wraps_function_successfully():
 
 def test_function_succeeds_on_first_attempt():
     """@with_retry should return result immediately if function succeeds first time."""
-    from trading_bot.error_handling import with_retry
+    from src.trading_bot.error_handling import with_retry
 
     # Given: A function that succeeds on first call
     @with_retry()
@@ -39,7 +39,7 @@ def test_function_succeeds_on_first_attempt():
 
 def test_function_retries_on_retriable_error():
     """@with_retry should retry when RetriableError is raised."""
-    from trading_bot.error_handling import with_retry, RetriableError
+    from src.trading_bot.error_handling import with_retry, RetriableError
 
     # Given: A function that fails twice then succeeds
     call_count = {"count": 0}
@@ -61,7 +61,7 @@ def test_function_retries_on_retriable_error():
 
 def test_function_fails_fast_on_non_retriable_error():
     """@with_retry should NOT retry for NonRetriableError."""
-    from trading_bot.error_handling import with_retry, NonRetriableError
+    from src.trading_bot.error_handling import with_retry, NonRetriableError
 
     # Given: A function that raises NonRetriableError
     call_count = {"count": 0}
@@ -81,7 +81,7 @@ def test_function_fails_fast_on_non_retriable_error():
 
 def test_retry_exhaustion_reraises_exception():
     """@with_retry should re-raise last exception after all retries exhausted."""
-    from trading_bot.error_handling import with_retry, RetriableError
+    from src.trading_bot.error_handling import with_retry, RetriableError
 
     # Given: A function that always fails
     call_count = {"count": 0}
@@ -101,7 +101,7 @@ def test_retry_exhaustion_reraises_exception():
 
 def test_exponential_backoff_delays():
     """@with_retry should use exponential backoff: 1s, 2s, 4s."""
-    from trading_bot.error_handling import with_retry, RetriableError, RetryPolicy
+    from src.trading_bot.error_handling import with_retry, RetriableError, RetryPolicy
 
     # Given: A function that always fails with no jitter policy
     policy = RetryPolicy(max_attempts=3, base_delay=1.0, backoff_multiplier=2.0, jitter=False)
@@ -124,7 +124,7 @@ def test_exponential_backoff_delays():
 
 def test_rate_limit_detection_waits_for_retry_after():
     """@with_retry should respect Retry-After value from RateLimitError."""
-    from trading_bot.error_handling import with_retry, RateLimitError, RetryPolicy
+    from src.trading_bot.error_handling import with_retry, RateLimitError, RetryPolicy
 
     # Given: A function that raises RateLimitError with retry_after
     call_count = {"count": 0}
@@ -149,7 +149,7 @@ def test_rate_limit_detection_waits_for_retry_after():
 
 def test_retry_logging_integration():
     """@with_retry should log retry attempts to errors logger."""
-    from trading_bot.error_handling import with_retry, RetriableError
+    from src.trading_bot.error_handling import with_retry, RetriableError
     from unittest.mock import patch
 
     # Given: A function that fails once then succeeds
@@ -176,7 +176,7 @@ def test_retry_logging_integration():
 
 def test_custom_retry_policy():
     """@with_retry should accept custom RetryPolicy."""
-    from trading_bot.error_handling import with_retry, RetriableError, RetryPolicy
+    from src.trading_bot.error_handling import with_retry, RetriableError, RetryPolicy
 
     # Given: A custom policy with 5 attempts
     custom_policy = RetryPolicy(max_attempts=5, base_delay=0.1, jitter=False)
@@ -197,7 +197,7 @@ def test_custom_retry_policy():
 
 def test_on_retry_callback():
     """@with_retry should call on_retry callback for each retry attempt."""
-    from trading_bot.error_handling import with_retry, RetriableError
+    from src.trading_bot.error_handling import with_retry, RetriableError
 
     # Given: A function that fails twice with retry callback
     call_count = {"count": 0}
@@ -225,7 +225,7 @@ def test_on_retry_callback():
 
 def test_on_exhausted_callback():
     """@with_retry should call on_exhausted callback when retries exhausted."""
-    from trading_bot.error_handling import with_retry, RetriableError
+    from src.trading_bot.error_handling import with_retry, RetriableError
 
     # Given: A function that always fails with exhausted callback
     exhausted_callback = Mock()
@@ -245,7 +245,7 @@ def test_on_exhausted_callback():
 
 def test_exception_chaining_preserved():
     """@with_retry should preserve exception chaining with 'from e'."""
-    from trading_bot.error_handling import with_retry, RetriableError
+    from src.trading_bot.error_handling import with_retry, RetriableError
 
     # Given: A function that always fails
     @with_retry()
@@ -263,7 +263,7 @@ def test_exception_chaining_preserved():
 
 def test_retry_overhead_less_than_100ms():
     """@with_retry overhead should be <100ms per attempt."""
-    from trading_bot.error_handling import with_retry, RetryPolicy
+    from src.trading_bot.error_handling import with_retry, RetryPolicy
 
     # Given: A policy with minimal delay and no retries
     policy = RetryPolicy(max_attempts=1, base_delay=0.001, jitter=False)
@@ -285,7 +285,7 @@ def test_retry_overhead_less_than_100ms():
 
 def test_jitter_adds_randomness_to_delays():
     """@with_retry should add ±10% jitter to delays when enabled."""
-    from trading_bot.error_handling import with_retry, RetriableError, RetryPolicy
+    from src.trading_bot.error_handling import with_retry, RetriableError, RetryPolicy
 
     # Given: Two policies - one with jitter, one without
     policy_with_jitter = RetryPolicy(max_attempts=1, base_delay=1.0, jitter=True)
@@ -328,7 +328,7 @@ def test_jitter_adds_randomness_to_delays():
 
 def test_decorator_with_no_policy_uses_default():
     """@with_retry() with no arguments should use DEFAULT_POLICY."""
-    from trading_bot.error_handling import with_retry, RetriableError, DEFAULT_POLICY
+    from src.trading_bot.error_handling import with_retry, RetriableError, DEFAULT_POLICY
 
     # Given: A function decorated with no policy argument
     call_count = {"count": 0}

@@ -19,7 +19,7 @@ from unittest.mock import Mock, patch
 from src.trading_bot.order_flow.config import OrderFlowConfig
 from src.trading_bot.order_flow.polygon_client import PolygonClient
 from src.trading_bot.order_flow.data_models import OrderBookSnapshot, TimeAndSalesRecord
-from trading_bot.market_data.exceptions import DataValidationError
+from src.trading_bot.market_data.exceptions import DataValidationError
 
 
 class TestPolygonClientLevel2Normalization:

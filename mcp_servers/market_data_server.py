@@ -2,7 +2,7 @@
 """
 Market Data MCP Server
 
-Exposes market data from trading_bot to Claude Code via Model Context Protocol.
+Exposes market data from src.trading_bot to Claude Code via Model Context Protocol.
 
 Tools provided:
 - get_quote: Get realtime quote for a symbol
@@ -33,11 +33,11 @@ except ImportError:
     print("ERROR: mcp package not installed. Install with: pip install mcp", file=sys.stderr)
     sys.exit(1)
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.market_data import MarketDataService, Quote
-from trading_bot.indicators import IndicatorService
-from trading_bot.momentum.premarket_scanner import PremarketScanner
-from trading_bot.config import Config
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.market_data import MarketDataService, Quote
+from src.trading_bot.indicators import IndicatorService
+from src.trading_bot.momentum.premarket_scanner import PremarketScanner
+from src.trading_bot.config import Config
 
 # Initialize server
 server = Server("market-data")

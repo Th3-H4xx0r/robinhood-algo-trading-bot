@@ -31,7 +31,7 @@ import pandas as pd
 from numpy.typing import NDArray
 from scipy.optimize import minimize
 
-from trading_bot.ml.models import FeatureSet, MLStrategy, StrategyEnsemble, StrategyMetrics
+from src.trading_bot.ml.models import FeatureSet, MLStrategy, StrategyEnsemble, StrategyMetrics
 
 logger = logging.getLogger(__name__)
 

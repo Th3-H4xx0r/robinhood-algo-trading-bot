@@ -20,11 +20,11 @@ import torch.nn as nn
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.config import Config
-from trading_bot.market_data.market_data_service import MarketDataService
-from trading_bot.ml.ensemble import LSTMModel
-from trading_bot.ml.features.extractor import FeatureExtractor
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.config import Config
+from src.trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.ml.ensemble import LSTMModel
+from src.trading_bot.ml.features.extractor import FeatureExtractor
 
 
 def create_labels_with_threshold(data, buy_threshold=0.005, sell_threshold=-0.005):

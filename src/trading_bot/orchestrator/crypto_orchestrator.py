@@ -13,7 +13,7 @@ import pandas as pd
 from datetime import datetime
 from typing import Optional, Any, List, Dict
 
-from trading_bot.orchestrator.interval_scheduler import IntervalScheduler
+from src.trading_bot.orchestrator.interval_scheduler import IntervalScheduler
 
 # Alpaca trading client for order placement
 from alpaca.trading.client import TradingClient
@@ -22,8 +22,8 @@ from alpaca.trading.enums import OrderSide, TimeInForce
 
 # LLM imports are optional - only needed if MULTI_AGENT_ENABLED=true
 try:
-    from trading_bot.llm.claude_manager import ClaudeCodeManager
-    from trading_bot.llm.examples.multi_agent_consensus_workflow import MultiAgentTradingWorkflow
+    from src.trading_bot.llm.claude_manager import ClaudeCodeManager
+    from src.trading_bot.llm.examples.multi_agent_consensus_workflow import MultiAgentTradingWorkflow
     HAS_LLM = True
 except ImportError:
     # Multi-agent system not available (excluded from Docker or incomplete setup)
@@ -33,8 +33,8 @@ except ImportError:
 
 # Crypto config imports are optional - only needed for crypto trading mode
 try:
-    from trading_bot.crypto_config import CryptoConfig
-    from trading_bot.market_data.crypto_service import CryptoDataService
+    from src.trading_bot.crypto_config import CryptoConfig
+    from src.trading_bot.market_data.crypto_service import CryptoDataService
     HAS_CRYPTO = True
 except ImportError:
     # Crypto trading not available (config classes not implemented)
@@ -44,7 +44,7 @@ except ImportError:
 
 # Technical Analysis framework
 try:
-    from trading_bot.technical_analysis import TACoordinator
+    from src.trading_bot.technical_analysis import TACoordinator
     HAS_TA_FRAMEWORK = True
 except ImportError:
     TACoordinator = None
@@ -82,7 +82,7 @@ class CryptoOrchestrator:
         self.mode = mode
 
         # Initialize telegram config from environment (for quiet hours checking)
-        from trading_bot.config import TelegramConfig
+        from src.trading_bot.config import TelegramConfig
         self.telegram_config = TelegramConfig.default()
 
         # Initialize crypto data service

@@ -11,8 +11,8 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from trading_bot.ml.config import ReinforcementLearningConfig
-from trading_bot.ml.models import MLStrategy
+from src.trading_bot.ml.config import ReinforcementLearningConfig
+from src.trading_bot.ml.models import MLStrategy
 
 logger = logging.getLogger(__name__)
 

@@ -14,7 +14,7 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from trading_bot.logger import log_dashboard_event
+from src.trading_bot.logger import log_dashboard_event
 
 
 class TestDashboardLogging:

@@ -23,7 +23,7 @@ from alpaca.common.exceptions import APIError
 from alpaca.trading.client import TradingClient
 
 if TYPE_CHECKING:  # pragma: no cover - type checking only
-    from trading_bot.auth.alpaca_auth import AlpacaAuth
+    from src.trading_bot.auth.alpaca_auth import AlpacaAuth
 
 logger = logging.getLogger(__name__)
 
@@ -215,7 +215,7 @@ class AccountData:
             self._trading_client = self.auth.get_trading_client()
             return self._trading_client
 
-        from trading_bot.auth import AlpacaAuth  # Local import to avoid cycles
+        from src.trading_bot.auth import AlpacaAuth  # Local import to avoid cycles
 
         self._owned_auth = AlpacaAuth(None)
         self._owned_auth.login()

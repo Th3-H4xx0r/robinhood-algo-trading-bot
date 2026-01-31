@@ -17,12 +17,12 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from trading_bot.auth import AlpacaAuth
-from trading_bot.config import Config
-from trading_bot.market_data.market_data_service import MarketDataService
-from trading_bot.ml.config import MLConfig
-from trading_bot.ml.features import FeatureExtractor
-from trading_bot.ml.generators import GeneticProgrammingGenerator
+from src.trading_bot.auth import AlpacaAuth
+from src.trading_bot.config import Config
+from src.trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.ml.config import MLConfig
+from src.trading_bot.ml.features import FeatureExtractor
+from src.trading_bot.ml.generators import GeneticProgrammingGenerator
 
 logging.basicConfig(
     level=logging.INFO,

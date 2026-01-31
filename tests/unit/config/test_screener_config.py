@@ -32,7 +32,7 @@ class TestScreenerConfig:
                     "SCREENER_MAX_RESULTS", "SCREENER_CACHE_TTL"]:
             monkeypatch.delenv(key, raising=False)
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         config = ScreenerConfig()
 
@@ -49,7 +49,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_LOG_DIR", "/custom/log/path")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         config = ScreenerConfig()
         assert config.LOG_DIR == "/custom/log/path"
@@ -62,7 +62,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_BATCH_SIZE", "250")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         config = ScreenerConfig()
         assert config.BATCH_SIZE == 250
@@ -75,7 +75,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_MAX_RESULTS", "1000")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         config = ScreenerConfig()
         assert config.MAX_RESULTS_PER_PAGE == 1000
@@ -88,7 +88,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_CACHE_TTL", "120")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         config = ScreenerConfig()
         assert config.CACHE_TTL_SECONDS == 120
@@ -101,7 +101,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_BATCH_SIZE", "-10")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         with pytest.raises(ValueError, match="SCREENER_BATCH_SIZE must be > 0"):
             ScreenerConfig()
@@ -114,7 +114,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_BATCH_SIZE", "0")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         with pytest.raises(ValueError, match="SCREENER_BATCH_SIZE must be > 0"):
             ScreenerConfig()
@@ -127,7 +127,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_MAX_RESULTS", "-100")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         with pytest.raises(ValueError, match="SCREENER_MAX_RESULTS must be > 0"):
             ScreenerConfig()
@@ -140,7 +140,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_CACHE_TTL", "-5")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         with pytest.raises(ValueError, match="SCREENER_CACHE_TTL must be >= 0"):
             ScreenerConfig()
@@ -153,7 +153,7 @@ class TestScreenerConfig:
         """
         monkeypatch.setenv("SCREENER_CACHE_TTL", "0")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         config = ScreenerConfig()
         assert config.CACHE_TTL_SECONDS == 0
@@ -168,7 +168,7 @@ class TestScreenerConfig:
         monkeypatch.setenv("SCREENER_LOG_DIR", "/custom/path")
         monkeypatch.setenv("SCREENER_BATCH_SIZE", "999")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         # default() should still return defaults (after env override in __post_init__)
         config = ScreenerConfig.default()
@@ -189,7 +189,7 @@ class TestScreenerConfig:
         monkeypatch.setenv("SCREENER_MAX_RESULTS", "1000")
         monkeypatch.setenv("SCREENER_CACHE_TTL", "300")
 
-        from trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.screener_config import ScreenerConfig
 
         config = ScreenerConfig()
 

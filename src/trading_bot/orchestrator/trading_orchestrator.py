@@ -13,12 +13,12 @@ from typing import Dict, List, Optional, Any
 from pathlib import Path
 import json
 
-from trading_bot.orchestrator.workflow import (
+from src.trading_bot.orchestrator.workflow import (
     WorkflowStateMachine,
     WorkflowState,
     WorkflowTransition
 )
-from trading_bot.orchestrator.scheduler import TradingScheduler
+from src.trading_bot.orchestrator.scheduler import TradingScheduler
 
 # Alpaca trading client for order execution
 from alpaca.trading.client import TradingClient
@@ -27,8 +27,8 @@ from alpaca.trading.enums import OrderSide, TimeInForce
 
 # LLM imports are optional - only needed if MULTI_AGENT_ENABLED=true
 try:
-    from trading_bot.llm.claude_manager import ClaudeCodeManager, LLMConfig, LLMModel
-    from trading_bot.llm.examples.multi_agent_consensus_workflow import MultiAgentTradingWorkflow
+    from src.trading_bot.llm.claude_manager import ClaudeCodeManager, LLMConfig, LLMModel
+    from src.trading_bot.llm.examples.multi_agent_consensus_workflow import MultiAgentTradingWorkflow
     HAS_LLM = True
 except ImportError:
     # Multi-agent system not available (excluded from Docker or incomplete setup)
@@ -40,13 +40,13 @@ except ImportError:
 
 # Technical Analysis framework
 try:
-    from trading_bot.technical_analysis import TACoordinator
+    from src.trading_bot.technical_analysis import TACoordinator
     HAS_TA_FRAMEWORK = True
 except ImportError:
     TACoordinator = None
     HAS_TA_FRAMEWORK = False
 
-from trading_bot.config import Config
+from src.trading_bot.config import Config
 
 logger = logging.getLogger(__name__)
 

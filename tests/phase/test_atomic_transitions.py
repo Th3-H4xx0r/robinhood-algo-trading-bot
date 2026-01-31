@@ -10,9 +10,9 @@ from pathlib import Path
 from datetime import date
 from decimal import Decimal
 
-from trading_bot.phase.models import Phase
-from trading_bot.phase.manager import PhaseManager
-from trading_bot.config import Config
+from src.trading_bot.phase.models import Phase
+from src.trading_bot.phase.manager import PhaseManager
+from src.trading_bot.config import Config
 
 
 class TestAtomicTransitions:
@@ -107,7 +107,7 @@ class TestAtomicTransitions:
         monkeypatch.setenv("PHASE_OVERRIDE_PASSWORD", "test123")
 
         # Advance phase (force to bypass validation complexity)
-        from trading_bot.phase.history_logger import HistoryLogger
+        from src.trading_bot.phase.history_logger import HistoryLogger
         manager.history_logger = HistoryLogger(log_dir=tmp_path)
 
         manager.advance_phase(
@@ -146,7 +146,7 @@ class TestAtomicTransitions:
         mocker.patch.object(config, 'save', side_effect=IOError("Disk full"))
 
         # Set up history logger
-        from trading_bot.phase.history_logger import HistoryLogger
+        from src.trading_bot.phase.history_logger import HistoryLogger
         manager.history_logger = HistoryLogger(log_dir=tmp_path)
 
         # Attempt phase advance should fail
@@ -179,7 +179,7 @@ class TestAtomicTransitions:
         monkeypatch.setenv("PHASE_OVERRIDE_PASSWORD", "test123")
 
         # Set up history logger
-        from trading_bot.phase.history_logger import HistoryLogger
+        from src.trading_bot.phase.history_logger import HistoryLogger
         logger = HistoryLogger(log_dir=tmp_path)
         manager.history_logger = logger
 
@@ -228,7 +228,7 @@ class TestAtomicTransitions:
         monkeypatch.setenv("PHASE_OVERRIDE_PASSWORD", "test123")
 
         # Set up history logger
-        from trading_bot.phase.history_logger import HistoryLogger
+        from src.trading_bot.phase.history_logger import HistoryLogger
         logger = HistoryLogger(log_dir=tmp_path)
         manager.history_logger = logger
 
@@ -284,7 +284,7 @@ class TestAtomicTransitions:
         monkeypatch.setenv("PHASE_OVERRIDE_PASSWORD", "test123")
 
         # Set up history logger
-        from trading_bot.phase.history_logger import HistoryLogger
+        from src.trading_bot.phase.history_logger import HistoryLogger
         manager.history_logger = HistoryLogger(log_dir=tmp_path)
 
         # Advance phase

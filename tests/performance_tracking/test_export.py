@@ -8,7 +8,7 @@ import pytest
 from datetime import datetime
 from decimal import Decimal
 
-from trading_bot.performance.models import PerformanceSummary
+from src.trading_bot.performance.models import PerformanceSummary
 
 
 class TestMarkdownExport:
@@ -44,7 +44,7 @@ class TestMarkdownExport:
         )
 
         # Function to be implemented in GREEN phase
-        from trading_bot.performance.tracker import PerformanceTracker
+        from src.trading_bot.performance.tracker import PerformanceTracker
 
         tracker = PerformanceTracker()
         markdown = tracker.export_markdown(summary)

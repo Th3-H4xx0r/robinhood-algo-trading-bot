@@ -7,9 +7,9 @@ import pytest
 from decimal import Decimal
 from datetime import date, datetime, timezone
 
-from trading_bot.phase.models import Phase, PhaseOverrideError
-from trading_bot.phase.manager import PhaseManager
-from trading_bot.config import Config
+from src.trading_bot.phase.models import Phase, PhaseOverrideError
+from src.trading_bot.phase.manager import PhaseManager
+from src.trading_bot.config import Config
 
 
 class TestPhaseOverridePassword:
@@ -205,7 +205,7 @@ class TestPhaseOverridePassword:
 @pytest.fixture
 def phase_manager(tmp_path):
     """Create PhaseManager for testing."""
-    from trading_bot.phase.history_logger import HistoryLogger
+    from src.trading_bot.phase.history_logger import HistoryLogger
 
     # Create config with experience phase
     config = Config(
@@ -227,8 +227,8 @@ def phase_manager(tmp_path):
 @pytest.fixture
 def phase_manager_with_metrics(tmp_path, mocker):
     """Create PhaseManager with mocked metrics that meet criteria."""
-    from trading_bot.phase.history_logger import HistoryLogger
-    from trading_bot.phase.validators import ValidationResult
+    from src.trading_bot.phase.history_logger import HistoryLogger
+    from src.trading_bot.phase.validators import ValidationResult
 
     # Create config
     config = Config(

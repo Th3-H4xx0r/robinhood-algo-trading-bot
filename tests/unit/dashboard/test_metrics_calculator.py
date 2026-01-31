@@ -19,9 +19,9 @@ import tempfile
 import shutil
 
 # This import may FAIL if MetricsCalculator doesn't have required methods yet (RED phase)
-from trading_bot.dashboard.metrics_calculator import MetricsCalculator
-from trading_bot.logging.trade_record import TradeRecord
-from trading_bot.account.account_data import Position
+from src.trading_bot.dashboard.metrics_calculator import MetricsCalculator
+from src.trading_bot.logging.trade_record import TradeRecord
+from src.trading_bot.account.account_data import Position
 
 
 def _create_trade(

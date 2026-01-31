@@ -1,6 +1,6 @@
 """Training utilities and regularization for trading ML models."""
 
-from trading_bot.ml.training.regularization import (
+from src.trading_bot.ml.training.regularization import (
     EarlyStopping,
     ModelCheckpoint,
     L2Regularizer,

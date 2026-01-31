@@ -15,8 +15,8 @@ from typing import Any, Callable
 import numpy as np
 from numpy.typing import NDArray
 
-from trading_bot.ml.config import GeneticProgrammingConfig
-from trading_bot.ml.models import (
+from src.trading_bot.ml.config import GeneticProgrammingConfig
+from src.trading_bot.ml.models import (
     MLStrategy,
     StrategyGene,
     StrategyMetrics,
@@ -264,7 +264,7 @@ class GeneticProgrammingGenerator:
         """
         try:
             import pandas as pd
-            from trading_bot.ml.features import FeatureExtractor
+            from src.trading_bot.ml.features import FeatureExtractor
 
             # Skip if insufficient data
             if len(historical_data) < 50:

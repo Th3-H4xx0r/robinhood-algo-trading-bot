@@ -9,9 +9,9 @@ import numpy as np
 import pandas as pd
 from numpy.typing import NDArray
 
-from trading_bot.ml.features.support_resistance import SupportResistanceDetector
-from trading_bot.ml.features.technical import TechnicalFeatureCalculator
-from trading_bot.ml.models import FeatureSet
+from src.trading_bot.ml.features.support_resistance import SupportResistanceDetector
+from src.trading_bot.ml.features.technical import TechnicalFeatureCalculator
+from src.trading_bot.ml.models import FeatureSet
 
 if TYPE_CHECKING:
     from pandas import DataFrame

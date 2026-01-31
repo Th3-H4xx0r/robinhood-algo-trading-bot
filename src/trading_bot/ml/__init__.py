@@ -19,14 +19,14 @@ Architecture:
 
 __version__ = "1.0.0"
 
-from trading_bot.ml.models import (
+from src.trading_bot.ml.models import (
     MLStrategy,
     StrategyType,
     StrategyMetrics,
     StrategyGene,
     FeatureSet,
 )
-from trading_bot.ml.config import MLConfig
+from src.trading_bot.ml.config import MLConfig
 
 __all__ = [
     "MLStrategy",

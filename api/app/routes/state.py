@@ -154,7 +154,7 @@ async def get_heartbeat():
     """
     Get last heartbeat from bot logs.
 
-    Reads the most recent heartbeat entry from trading_bot.log to verify
+    Reads the most recent heartbeat entry from src.trading_bot.log to verify
     the bot's trading loop is actively running.
 
     Returns:

@@ -10,7 +10,7 @@ Follows error hierarchy from src/trading_bot/error_handling/exceptions.py:
 
 from __future__ import annotations
 
-from trading_bot.error_handling.exceptions import NonRetriableError
+from src.trading_bot.error_handling.exceptions import NonRetriableError
 
 
 class BacktestException(NonRetriableError):

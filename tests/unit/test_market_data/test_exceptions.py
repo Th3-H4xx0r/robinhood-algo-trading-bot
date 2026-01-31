@@ -2,13 +2,13 @@
 Unit tests for market data exceptions
 """
 import pytest
-from trading_bot.error_handling.exceptions import NonRetriableError
+from src.trading_bot.error_handling.exceptions import NonRetriableError
 
 
 # T010 [RED]: Write failing test for DataValidationError inheritance
 def test_data_validation_error_inheritance():
     """Test that DataValidationError is a NonRetriableError."""
-    from trading_bot.market_data.exceptions import DataValidationError
+    from src.trading_bot.market_data.exceptions import DataValidationError
 
     error = DataValidationError("Test validation error")
 
@@ -19,7 +19,7 @@ def test_data_validation_error_inheritance():
 # T012 [RED]: Write failing test for TradingHoursError inheritance
 def test_trading_hours_error_inheritance():
     """Test that TradingHoursError is a NonRetriableError."""
-    from trading_bot.market_data.exceptions import TradingHoursError
+    from src.trading_bot.market_data.exceptions import TradingHoursError
 
     error = TradingHoursError("Test trading hours error")
 

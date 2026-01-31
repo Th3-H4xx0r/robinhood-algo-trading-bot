@@ -7,12 +7,12 @@ from dataclasses import dataclass
 
 import pandas as pd
 
-from trading_bot.ml.backtesting.walk_forward import (
+from src.trading_bot.ml.backtesting.walk_forward import (
     WalkForwardOptimizer,
     WalkForwardResult,
 )
-from trading_bot.ml.config import BacktestConfig
-from trading_bot.ml.models import MLStrategy, StrategyMetrics, StrategyStatus
+from src.trading_bot.ml.config import BacktestConfig
+from src.trading_bot.ml.models import MLStrategy, StrategyMetrics, StrategyStatus
 
 logger = logging.getLogger(__name__)
 

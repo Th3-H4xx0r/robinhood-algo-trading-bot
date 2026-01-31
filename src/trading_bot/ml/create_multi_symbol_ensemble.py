@@ -18,9 +18,9 @@ import logging
 import sys
 from pathlib import Path
 
-from trading_bot.ml.ensemble_builder import EnsembleBuilder, create_ensemble_from_selection
-from trading_bot.ml.models import MLStrategy, StrategyGene, StrategyMetrics, StrategyStatus, StrategyType
-from trading_bot.ml.strategy_selector import StrategySelector
+from src.trading_bot.ml.ensemble_builder import EnsembleBuilder, create_ensemble_from_selection
+from src.trading_bot.ml.models import MLStrategy, StrategyGene, StrategyMetrics, StrategyStatus, StrategyType
+from src.trading_bot.ml.strategy_selector import StrategySelector
 
 logging.basicConfig(
     level=logging.INFO,

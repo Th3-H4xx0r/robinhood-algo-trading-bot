@@ -14,20 +14,20 @@ from rich.console import Console
 from rich.text import Text
 
 import trading_bot.dashboard.dashboard as dashboard
-from trading_bot.account.account_data import AccountBalance, Position
-from trading_bot.dashboard.data_provider import DashboardDataProvider, ProviderConfig
-from trading_bot.dashboard.display_renderer import DisplayRenderer
-from trading_bot.dashboard.export_generator import ExportGenerator
-from trading_bot.dashboard.metrics_calculator import MetricsCalculator
-from trading_bot.dashboard.models import (
+from src.trading_bot.account.account_data import AccountBalance, Position
+from src.trading_bot.dashboard.data_provider import DashboardDataProvider, ProviderConfig
+from src.trading_bot.dashboard.display_renderer import DisplayRenderer
+from src.trading_bot.dashboard.export_generator import ExportGenerator
+from src.trading_bot.dashboard.metrics_calculator import MetricsCalculator
+from src.trading_bot.dashboard.models import (
     AccountStatus,
     DashboardSnapshot,
     DashboardTargets,
     PerformanceMetrics,
     PositionDisplay,
 )
-from trading_bot.dashboard.dashboard import log_dashboard_event
-from trading_bot.logging.trade_record import TradeRecord
+from src.trading_bot.dashboard.dashboard import log_dashboard_event
+from src.trading_bot.logging.trade_record import TradeRecord
 
 
 @pytest.fixture

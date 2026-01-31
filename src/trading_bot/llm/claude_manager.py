@@ -13,7 +13,7 @@ Features:
 - Latency tracking
 
 Usage:
-    from trading_bot.llm import ClaudeCodeManager, LLMConfig
+    from src.trading_bot.llm import ClaudeCodeManager, LLMConfig
 
     config = LLMConfig(daily_budget_usd=5.0, model="haiku")
     manager = ClaudeCodeManager(config)
@@ -138,7 +138,7 @@ class ClaudeCodeManager:
 
         if self.telegram_enabled and self.telegram_bot_token and self.telegram_chat_id:
             try:
-                from trading_bot.notifications.telegram_client import TelegramClient
+                from src.trading_bot.notifications.telegram_client import TelegramClient
                 self.telegram_client = TelegramClient(
                     bot_token=self.telegram_bot_token,
                     timeout=5.0
@@ -193,7 +193,7 @@ class ClaudeCodeManager:
                 try:
                     # Create fresh TelegramClient in this thread's event loop
                     # This avoids "bound to a different event loop" errors
-                    from trading_bot.notifications.telegram_client import TelegramClient
+                    from src.trading_bot.notifications.telegram_client import TelegramClient
                     client = TelegramClient(
                         bot_token=self.telegram_bot_token,
                         timeout=5.0

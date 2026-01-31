@@ -21,7 +21,7 @@ from typing import Optional, Dict, List
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 try:
-    from trading_bot.notifications.telegram_client import TelegramClient, TelegramResponse
+    from src.trading_bot.notifications.telegram_client import TelegramClient, TelegramResponse
 except ImportError:
     print("Warning: Telegram client not available. Install: pip install python-telegram-bot")
     TelegramClient = None

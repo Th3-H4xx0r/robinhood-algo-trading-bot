@@ -14,8 +14,8 @@ References:
 - "Deep Learning for Trading: Architecture Patterns" (2021)
 
 Usage:
-    from trading_bot.ml.neural_models import HierarchicalTimeframeNet
-    from trading_bot.ml.features.multi_timeframe import MultiTimeframeExtractor
+    from src.trading_bot.ml.neural_models import HierarchicalTimeframeNet
+    from src.trading_bot.ml.features.multi_timeframe import MultiTimeframeExtractor
 
     # Create model
     model = HierarchicalTimeframeNet(

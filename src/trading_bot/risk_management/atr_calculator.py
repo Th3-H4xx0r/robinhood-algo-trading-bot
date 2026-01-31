@@ -15,13 +15,13 @@ import logging
 from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 
-from trading_bot.market_data.data_models import PriceBar
-from trading_bot.risk_management.exceptions import (
+from src.trading_bot.market_data.data_models import PriceBar
+from src.trading_bot.risk_management.exceptions import (
     ATRCalculationError,
     ATRValidationError,
     StaleDataError,
 )
-from trading_bot.risk_management.models import ATRStopData
+from src.trading_bot.risk_management.models import ATRStopData
 
 logger = logging.getLogger(__name__)
 

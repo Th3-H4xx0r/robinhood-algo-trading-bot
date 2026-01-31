@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent / "src"))
 import numpy as np
 import torch
 
-from trading_bot.ml.ensemble.base_models import (
+from src.trading_bot.ml.ensemble.base_models import (
     BaseModel,
     LSTMModel,
     GRUModel,

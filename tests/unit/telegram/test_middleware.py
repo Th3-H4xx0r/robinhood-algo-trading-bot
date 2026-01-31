@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 import pytest
 
-from trading_bot.telegram.middleware import CommandAuthMiddleware, CommandRateLimiter
+from src.trading_bot.telegram.middleware import CommandAuthMiddleware, CommandRateLimiter
 
 
 # CommandAuthMiddleware Tests

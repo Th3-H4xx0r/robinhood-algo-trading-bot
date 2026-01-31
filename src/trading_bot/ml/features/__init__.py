@@ -11,11 +11,11 @@ Converts raw market data into 55-dimensional feature vectors:
 All features are normalized to [-1, 1] for model stability.
 """
 
-from trading_bot.ml.features.extractor import FeatureExtractor
-from trading_bot.ml.features.technical import TechnicalFeatureCalculator
-from trading_bot.ml.features.patterns import PatternFeatureCalculator
-from trading_bot.ml.features.sentiment import SentimentFeatureCalculator
-from trading_bot.ml.features.microstructure import MicrostructureFeatureCalculator
+from src.trading_bot.ml.features.extractor import FeatureExtractor
+from src.trading_bot.ml.features.technical import TechnicalFeatureCalculator
+from src.trading_bot.ml.features.patterns import PatternFeatureCalculator
+from src.trading_bot.ml.features.sentiment import SentimentFeatureCalculator
+from src.trading_bot.ml.features.microstructure import MicrostructureFeatureCalculator
 
 __all__ = [
     "FeatureExtractor",

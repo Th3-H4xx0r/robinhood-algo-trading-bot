@@ -9,7 +9,7 @@ Based on: specs/022-pos-scale-progress/spec.md FR-008
 Tasks: T149
 """
 
-from trading_bot.phase.cli import main
+from src.trading_bot.phase.cli import main
 
 if __name__ == "__main__":
     main()

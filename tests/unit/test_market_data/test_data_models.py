@@ -10,7 +10,7 @@ from dataclasses import FrozenInstanceError
 # T004 [RED]: Write failing test for Quote immutability
 def test_quote_is_immutable():
     """Test that Quote dataclass is frozen and immutable."""
-    from trading_bot.market_data.data_models import Quote
+    from src.trading_bot.market_data.data_models import Quote
 
     quote = Quote(
         symbol="AAPL",
@@ -27,7 +27,7 @@ def test_quote_is_immutable():
 # T006 [RED]: Write failing test for MarketStatus immutability
 def test_market_status_is_immutable():
     """Test that MarketStatus dataclass is frozen and immutable."""
-    from trading_bot.market_data.data_models import MarketStatus
+    from src.trading_bot.market_data.data_models import MarketStatus
 
     now = datetime.now(timezone.utc)
     status = MarketStatus(
@@ -44,7 +44,7 @@ def test_market_status_is_immutable():
 # T008 [RED]: Write failing test for MarketDataConfig defaults
 def test_market_data_config_defaults():
     """Test that MarketDataConfig has correct default values."""
-    from trading_bot.market_data.data_models import MarketDataConfig
+    from src.trading_bot.market_data.data_models import MarketDataConfig
 
     config = MarketDataConfig()
 

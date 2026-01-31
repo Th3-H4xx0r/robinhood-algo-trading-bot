@@ -4,7 +4,7 @@ from datetime import datetime, timezone, timedelta
 
 import pytest
 
-from trading_bot.telegram.response_formatter import ResponseFormatter
+from src.trading_bot.telegram.response_formatter import ResponseFormatter
 
 
 def test_format_status_running_with_positions():

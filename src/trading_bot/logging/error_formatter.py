@@ -25,7 +25,7 @@ def format_exception(
         SemanticError with cause, impact, and remediation fields populated
 
     Examples:
-        >>> from trading_bot.error_handling.exceptions import CircuitBreakerError
+        >>> from src.trading_bot.error_handling.exceptions import CircuitBreakerError
         >>> exc = CircuitBreakerError("Daily loss limit exceeded")
         >>> semantic_error = format_exception(exc, {"daily_loss": -5.2})
         >>> semantic_error.error_code

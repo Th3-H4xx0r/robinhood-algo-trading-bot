@@ -18,19 +18,19 @@ from pathlib import Path
 from typing import Any
 
 # T038: Authentication module integration
-from trading_bot.auth import AuthenticationError, RobinhoodAuth
+from src.trading_bot.auth import AuthenticationError, RobinhoodAuth
 
 # Configuration types
-from trading_bot.config import Config
+from src.trading_bot.config import Config
 
 # T060: Session health monitoring integration
-from trading_bot.health import HealthCheckResult, SessionHealthMonitor
+from src.trading_bot.health import HealthCheckResult, SessionHealthMonitor
 
 # T030-T034: Structured logging integration
-from trading_bot.logging import StructuredTradeLogger, TradeRecord
+from src.trading_bot.logging import StructuredTradeLogger, TradeRecord
 
 # Order management integration
-from trading_bot.order_management import (
+from src.trading_bot.order_management import (
     OrderManager,
     OrderRequest,
     OrderSubmissionError,
@@ -38,13 +38,13 @@ from trading_bot.order_management import (
 )
 
 # T037: Risk management integration
-from trading_bot.risk_management import RiskManagementConfig, RiskManager
-from trading_bot.risk_management.target_monitor import TargetMonitor
+from src.trading_bot.risk_management import RiskManagementConfig, RiskManager
+from src.trading_bot.risk_management.target_monitor import TargetMonitor
 
 # REFACTORED: Import SafetyChecks instead of local CircuitBreaker
 # Old CircuitBreaker class removed in favor of comprehensive SafetyChecks module
 # See: src/trading_bot/safety_checks.py for enhanced circuit breaker functionality
-from trading_bot.safety_checks import SafetyChecks
+from src.trading_bot.safety_checks import SafetyChecks
 
 logger = logging.getLogger(__name__)
 
@@ -169,7 +169,7 @@ class TradingBot:
         # T044: Initialize account data module if authenticated
         self.account_data: Any | None = None
         if self.auth is not None:
-            from trading_bot.account import AccountData
+            from src.trading_bot.account import AccountData
             self.account_data = AccountData(auth=self.auth)
             logger.info("Account data module initialized")
 
@@ -252,7 +252,7 @@ class TradingBot:
         self.market_data: Any | None = None
         if self.auth is not None:
             try:
-                from trading_bot.market_data.market_data_service import MarketDataService
+                from src.trading_bot.market_data.market_data_service import MarketDataService
                 self.market_data = MarketDataService(auth=self.auth)
                 logger.info("MarketDataService initialized")
             except ImportError:
@@ -260,7 +260,7 @@ class TradingBot:
 
         # T020: Initialize Telegram NotificationService with graceful degradation
         try:
-            from trading_bot.notifications import get_notification_service
+            from src.trading_bot.notifications import get_notification_service
             self.notification_service = get_notification_service()
             if self.notification_service.is_enabled():
                 logger.info("Telegram notifications enabled")
@@ -276,12 +276,12 @@ class TradingBot:
         self.last_scan_results: dict[str, Any] = {"signals": [], "count": 0}
         if config is not None and self.market_data is not None:
             try:
-                from trading_bot.momentum.config import MomentumConfig
-                from trading_bot.momentum.momentum_ranker import MomentumRanker
-                from trading_bot.momentum.catalyst_detector import CatalystDetector
-                from trading_bot.momentum.premarket_scanner import PreMarketScanner
-                from trading_bot.momentum.bull_flag_detector import BullFlagDetector
-                from trading_bot.momentum.logging.momentum_logger import MomentumLogger
+                from src.trading_bot.momentum.config import MomentumConfig
+                from src.trading_bot.momentum.momentum_ranker import MomentumRanker
+                from src.trading_bot.momentum.catalyst_detector import CatalystDetector
+                from src.trading_bot.momentum.premarket_scanner import PreMarketScanner
+                from src.trading_bot.momentum.bull_flag_detector import BullFlagDetector
+                from src.trading_bot.momentum.logging.momentum_logger import MomentumLogger
 
                 momentum_config = MomentumConfig.from_env()
                 momentum_logger = MomentumLogger()

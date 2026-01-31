@@ -6,7 +6,7 @@ import time
 
 def test_circuit_breaker_records_failures():
     """CircuitBreaker should record failure timestamps in sliding window."""
-    from trading_bot.error_handling import circuit_breaker
+    from src.trading_bot.error_handling import circuit_breaker
 
     # Given: Circuit breaker with clean state
     circuit_breaker._failures.clear()
@@ -22,7 +22,7 @@ def test_circuit_breaker_records_failures():
 
 def test_circuit_breaker_trips_at_threshold():
     """CircuitBreaker should trip when failures reach threshold (5 in 60s)."""
-    from trading_bot.error_handling import circuit_breaker
+    from src.trading_bot.error_handling import circuit_breaker
 
     # Given: Circuit breaker with clean state
     circuit_breaker._failures.clear()
@@ -43,7 +43,7 @@ def test_circuit_breaker_trips_at_threshold():
 
 def test_circuit_breaker_resets_on_success():
     """CircuitBreaker should clear failures on successful operation."""
-    from trading_bot.error_handling import circuit_breaker
+    from src.trading_bot.error_handling import circuit_breaker
 
     # Given: Circuit breaker with failures
     circuit_breaker._failures.clear()
@@ -60,7 +60,7 @@ def test_circuit_breaker_resets_on_success():
 
 def test_circuit_breaker_sliding_window_expiry():
     """CircuitBreaker should only count failures within 60s window."""
-    from trading_bot.error_handling import circuit_breaker
+    from src.trading_bot.error_handling import circuit_breaker
 
     # Given: Circuit breaker with clean state
     circuit_breaker._failures.clear()

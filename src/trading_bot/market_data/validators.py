@@ -8,7 +8,7 @@ from typing import Any
 
 import pandas as pd
 
-from trading_bot.market_data.exceptions import DataValidationError, TradingHoursError
+from src.trading_bot.market_data.exceptions import DataValidationError, TradingHoursError
 
 
 # T028: Common validation helpers
@@ -178,7 +178,7 @@ def validate_trade_time(current_time: datetime | None = None) -> None:
     Raises:
         TradingHoursError: If current time is outside trading hours
     """
-    from trading_bot.utils.time_utils import is_trading_hours
+    from src.trading_bot.utils.time_utils import is_trading_hours
 
     if not is_trading_hours("America/New_York", current_time):
         raise TradingHoursError("Trading blocked outside 7am-10am EST")

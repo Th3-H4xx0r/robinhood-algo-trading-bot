@@ -26,8 +26,8 @@ import numpy as np
 import pandas as pd
 from numpy.typing import NDArray
 
-from trading_bot.ml.backtesting.validator import ValidationResult
-from trading_bot.ml.models import MLStrategy, StrategyMetrics
+from src.trading_bot.ml.backtesting.validator import ValidationResult
+from src.trading_bot.ml.models import MLStrategy, StrategyMetrics
 
 logger = logging.getLogger(__name__)
 

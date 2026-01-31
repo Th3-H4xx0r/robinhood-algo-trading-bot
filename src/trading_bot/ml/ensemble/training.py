@@ -21,8 +21,8 @@ import torch.nn as nn
 import torch.optim as optim
 from numpy.typing import NDArray
 
-from trading_bot.ml.ensemble.base_models import BaseModel
-from trading_bot.ml.ensemble.meta_learner import MetaLearner, StackingEnsemble
+from src.trading_bot.ml.ensemble.base_models import BaseModel
+from src.trading_bot.ml.ensemble.meta_learner import MetaLearner, StackingEnsemble
 
 logger = logging.getLogger(__name__)
 

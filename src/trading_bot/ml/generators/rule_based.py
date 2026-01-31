@@ -20,7 +20,7 @@ import numpy as np
 import pandas as pd
 from numpy.typing import NDArray
 
-from trading_bot.ml.models import (
+from src.trading_bot.ml.models import (
     MLStrategy,
     StrategyGene,
     StrategyMetrics,
@@ -263,7 +263,7 @@ class RuleBasedGenerator:
         logger.info(f"Generating {num_strategies} rule-based strategies")
 
         # Import rules from rules/ directory
-        from trading_bot.ml.rules import ALL_RULES
+        from src.trading_bot.ml.rules import ALL_RULES
 
         strategies = []
 

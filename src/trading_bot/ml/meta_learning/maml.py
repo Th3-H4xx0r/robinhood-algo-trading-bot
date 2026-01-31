@@ -15,7 +15,7 @@ Key Papers:
 - "Rapid Adaptation in Trading via MAML" (2021)
 
 Usage:
-    from trading_bot.ml.meta_learning import MAML, MAMLConfig
+    from src.trading_bot.ml.meta_learning import MAML, MAMLConfig
 
     # Initialize MAML
     config = MAMLConfig(

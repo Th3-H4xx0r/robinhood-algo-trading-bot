@@ -11,7 +11,7 @@ Constitution v1.0.0:
 
 from typing import Protocol, runtime_checkable
 
-from trading_bot.backtest.models import HistoricalDataBar, Position
+from src.trading_bot.backtest.models import HistoricalDataBar, Position
 
 
 @runtime_checkable

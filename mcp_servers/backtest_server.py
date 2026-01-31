@@ -2,7 +2,7 @@
 """
 Backtest MCP Server
 
-Exposes backtesting capabilities from trading_bot to Claude Code via MCP.
+Exposes backtesting capabilities from src.trading_bot to Claude Code via MCP.
 
 Tools provided:
 - run_backtest: Run strategy backtest on historical data
@@ -33,9 +33,9 @@ except ImportError:
     print("ERROR: mcp package not installed. Install with: pip install mcp", file=sys.stderr)
     sys.exit(1)
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.backtest import BacktestEngine, PerformanceCalculator
-from trading_bot.config import Config
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.backtest import BacktestEngine, PerformanceCalculator
+from src.trading_bot.config import Config
 
 # Initialize server
 server = Server("backtest")

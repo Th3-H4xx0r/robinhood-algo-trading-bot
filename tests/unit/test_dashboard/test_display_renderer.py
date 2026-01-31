@@ -24,8 +24,8 @@ from rich.panel import Panel
 from rich.table import Table
 
 # Import existing implementation (validation phase)
-from trading_bot.dashboard.display_renderer import DisplayRenderer
-from trading_bot.dashboard.models import (
+from src.trading_bot.dashboard.display_renderer import DisplayRenderer
+from src.trading_bot.dashboard.models import (
     AccountStatus,
     DashboardSnapshot,
     DashboardTargets,

@@ -10,8 +10,8 @@ Constitution v1.0.0:
 - §Audit_Everything: All indicator calculations logged
 
 Example:
-    from trading_bot.indicators import TechnicalIndicatorsService
-    from trading_bot.market_data import MarketDataService
+    from src.trading_bot.indicators import TechnicalIndicatorsService
+    from src.trading_bot.market_data import MarketDataService
 
     service = TechnicalIndicatorsService(market_data_service)
     indicators = service.get_all_indicators("AAPL")

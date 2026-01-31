@@ -8,7 +8,7 @@ import pytest
 from pathlib import Path
 import json
 
-from trading_bot.performance.cache import load_index, update_index, needs_refresh
+from src.trading_bot.performance.cache import load_index, update_index, needs_refresh
 
 
 class TestCacheIndex:

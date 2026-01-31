@@ -18,11 +18,11 @@ from pathlib import Path
 
 import pandas as pd
 
-from trading_bot.backtest.exceptions import DataQualityError, InsufficientDataError
-from trading_bot.backtest.models import HistoricalDataBar
-from trading_bot.error_handling.policies import DEFAULT_POLICY
-from trading_bot.error_handling.retry import with_retry
-from trading_bot.logger import TradingLogger
+from src.trading_bot.backtest.exceptions import DataQualityError, InsufficientDataError
+from src.trading_bot.backtest.models import HistoricalDataBar
+from src.trading_bot.error_handling.policies import DEFAULT_POLICY
+from src.trading_bot.error_handling.retry import with_retry
+from src.trading_bot.logger import TradingLogger
 
 
 class HistoricalDataManager:

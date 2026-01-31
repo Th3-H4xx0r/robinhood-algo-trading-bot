@@ -11,8 +11,8 @@ import logging
 import numpy as np
 import pandas as pd
 
-from trading_bot.ml.features import FeatureExtractor
-from trading_bot.ml.generators.rule_based import RuleBasedStrategy, RuleSignal
+from src.trading_bot.ml.features import FeatureExtractor
+from src.trading_bot.ml.generators.rule_based import RuleBasedStrategy, RuleSignal
 
 logger = logging.getLogger(__name__)
 

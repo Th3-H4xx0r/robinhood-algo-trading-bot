@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
 
-from trading_bot.performance.tracker import PerformanceTracker
+from src.trading_bot.performance.tracker import PerformanceTracker
 
 
 class TestDailySummaryAggregation:

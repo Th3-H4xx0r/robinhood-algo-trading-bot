@@ -10,9 +10,9 @@ from unittest.mock import MagicMock, Mock
 
 import pytest
 
-from trading_bot.order_flow.config import OrderFlowConfig
-from trading_bot.order_flow.data_models import OrderFlowAlert, TimeAndSalesRecord
-from trading_bot.order_flow.tape_monitor import TapeMonitor
+from src.trading_bot.order_flow.config import OrderFlowConfig
+from src.trading_bot.order_flow.data_models import OrderFlowAlert, TimeAndSalesRecord
+from src.trading_bot.order_flow.tape_monitor import TapeMonitor
 
 
 class TestTapeMonitorRollingAverage:

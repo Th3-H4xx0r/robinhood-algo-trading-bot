@@ -25,7 +25,7 @@ Features:
 - JSONL logging of all LLM calls
 
 Usage (Claude Code):
-    from trading_bot.llm import ClaudeCodeManager, LLMConfig
+    from src.trading_bot.llm import ClaudeCodeManager, LLMConfig
 
     config = LLMConfig(daily_budget_usd=5.0, model="haiku")
     manager = ClaudeCodeManager(config)
@@ -36,7 +36,7 @@ Usage (Claude Code):
         # Process symbols...
 
 Usage (OpenAI - legacy):
-    from trading_bot.llm import TradeAnalyzer
+    from src.trading_bot.llm import TradeAnalyzer
 
     analyzer = TradeAnalyzer()
     result = analyzer.analyze_trade_signal(

@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
-    from trading_bot.health.session_health import HealthCheckResult, SessionHealthStatus
+    from src.trading_bot.health.session_health import HealthCheckResult, SessionHealthStatus
 
 __all__ = ["HealthCheckLogger"]
 

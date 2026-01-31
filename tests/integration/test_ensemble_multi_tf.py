@@ -15,11 +15,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 import pandas as pd
-from trading_bot.ml.generators.rule_based import RuleBasedGenerator
-from trading_bot.ml.generators.ensemble import RuleEnsembleGenerator
-from trading_bot.market_data.market_data_service import MarketDataService
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.config import Config
+from src.trading_bot.ml.generators.rule_based import RuleBasedGenerator
+from src.trading_bot.ml.generators.ensemble import RuleEnsembleGenerator
+from src.trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.config import Config
 
 
 def main():

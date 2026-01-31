@@ -49,17 +49,17 @@ def generate_watchlist_command(args: argparse.Namespace) -> int:
         Exit code (0=success, 1=error)
     """
     try:
-        from trading_bot.schemas.watchlist_schemas import (
+        from src.trading_bot.schemas.watchlist_schemas import (
             TierCriteria,
             WatchlistConfig,
             WatchlistTier,
         )
-        from trading_bot.services.screener_service import ScreenerService
-        from trading_bot.services.watchlist_service import WatchlistService
-        from trading_bot.screener_config import ScreenerConfig
-        from trading_bot.market_data.market_data_service import MarketDataService
-        from trading_bot.logging.screener_logger import ScreenerLogger
-        from trading_bot.config import Config
+        from src.trading_bot.services.screener_service import ScreenerService
+        from src.trading_bot.services.watchlist_service import WatchlistService
+        from src.trading_bot.screener_config import ScreenerConfig
+        from src.trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.logging.screener_logger import ScreenerLogger
+        from src.trading_bot.config import Config
 
         # Default sector-based configuration
         config = _build_default_config(args.sectors)
@@ -105,7 +105,7 @@ def _build_default_config(sectors_arg: str | None) -> "WatchlistConfig":
     Returns:
         WatchlistConfig with tier-based setup
     """
-    from trading_bot.schemas.watchlist_schemas import (
+    from src.trading_bot.schemas.watchlist_schemas import (
         TierCriteria,
         WatchlistConfig,
         WatchlistTier,

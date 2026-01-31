@@ -36,7 +36,7 @@ class TestScreenerLogger:
     @pytest.fixture
     def logger(self, temp_log_dir):
         """Provide ScreenerLogger instance with temp directory."""
-        from trading_bot.logging.screener_logger import ScreenerLogger
+        from src.trading_bot.logging.screener_logger import ScreenerLogger
         return ScreenerLogger(log_dir=str(temp_log_dir))
 
     def test_log_query_writes_jsonl(self, logger, temp_log_dir):
@@ -87,7 +87,7 @@ class TestScreenerLogger:
 
         Acceptance: File created with today's date in ISO8601 format
         """
-        from trading_bot.logging.screener_logger import ScreenerLogger
+        from src.trading_bot.logging.screener_logger import ScreenerLogger
 
         # Arrange
         logger = ScreenerLogger(log_dir=str(temp_log_dir))

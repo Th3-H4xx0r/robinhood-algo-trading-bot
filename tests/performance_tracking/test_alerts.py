@@ -8,8 +8,8 @@ import pytest
 from datetime import datetime
 from decimal import Decimal
 
-from trading_bot.performance.alerts import AlertEvaluator
-from trading_bot.performance.models import PerformanceSummary
+from src.trading_bot.performance.alerts import AlertEvaluator
+from src.trading_bot.performance.models import PerformanceSummary
 
 
 class TestAlertEvaluatorWinRateBreach:

@@ -6,13 +6,13 @@ from datetime import datetime, timezone, timedelta
 from decimal import Decimal
 import pandas as pd
 
-from trading_bot.market_data.validators import (
+from src.trading_bot.market_data.validators import (
     validate_price,
     validate_timestamp,
     validate_quote,
     validate_historical_data,
 )
-from trading_bot.market_data.exceptions import DataValidationError
+from src.trading_bot.market_data.exceptions import DataValidationError
 
 
 # T014: Write failing test - validate_price rejects zero

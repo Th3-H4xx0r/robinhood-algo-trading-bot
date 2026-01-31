@@ -26,7 +26,7 @@ class CircuitBreaker:
     Thread-safe for single-threaded bot (no locks needed).
 
     Example:
-        from trading_bot.error_handling import circuit_breaker
+        from src.trading_bot.error_handling import circuit_breaker
 
         def api_call():
             try:

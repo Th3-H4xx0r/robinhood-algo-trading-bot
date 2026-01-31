@@ -15,8 +15,8 @@ import pytest
 from datetime import UTC, datetime
 from unittest.mock import AsyncMock, MagicMock, patch
 
-from trading_bot.momentum import MomentumEngine, MomentumConfig
-from trading_bot.momentum.schemas.momentum_signal import MomentumSignal, SignalType
+from src.trading_bot.momentum import MomentumEngine, MomentumConfig
+from src.trading_bot.momentum.schemas.momentum_signal import MomentumSignal, SignalType
 
 
 @pytest.fixture
@@ -65,7 +65,7 @@ class TestMomentumEngineInitialization:
 
     def test_initialization_with_custom_logger(self, momentum_config, mock_market_data_service):
         """Test that MomentumEngine accepts custom logger."""
-        from trading_bot.momentum.logging.momentum_logger import MomentumLogger
+        from src.trading_bot.momentum.logging.momentum_logger import MomentumLogger
 
         custom_logger = MomentumLogger()
         engine = MomentumEngine(momentum_config, mock_market_data_service, custom_logger)

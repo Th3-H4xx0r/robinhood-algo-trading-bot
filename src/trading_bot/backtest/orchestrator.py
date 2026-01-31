@@ -12,7 +12,7 @@ import logging
 from datetime import datetime
 from decimal import Decimal
 
-from trading_bot.backtest.models import (
+from src.trading_bot.backtest.models import (
     HistoricalDataBar,
     OrchestratorConfig,
     OrchestratorResult,
@@ -20,7 +20,7 @@ from trading_bot.backtest.models import (
     StrategyAllocation,
     Trade,
 )
-from trading_bot.backtest.strategy_protocol import IStrategy
+from src.trading_bot.backtest.strategy_protocol import IStrategy
 
 logger = logging.getLogger(__name__)
 
@@ -41,7 +41,7 @@ class StrategyOrchestrator:
 
     Example:
         from decimal import Decimal
-        from trading_bot.backtest import StrategyOrchestrator, OrchestratorConfig
+        from src.trading_bot.backtest import StrategyOrchestrator, OrchestratorConfig
 
         # Define strategies with weights (weights must sum ≤ 1.0)
         strategies_with_weights = [

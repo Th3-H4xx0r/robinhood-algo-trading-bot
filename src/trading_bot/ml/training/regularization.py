@@ -19,7 +19,7 @@ References:
 - "Ensemble Methods for Robust Predictions" (2021)
 
 Usage:
-    from trading_bot.ml.training import EarlyStopping, ModelCheckpoint
+    from src.trading_bot.ml.training import EarlyStopping, ModelCheckpoint
 
     # Early stopping callback
     early_stop = EarlyStopping(

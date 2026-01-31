@@ -12,10 +12,10 @@ from decimal import Decimal
 from typing import Dict, Optional, Tuple
 from uuid import uuid4
 
-from trading_bot.config import Config
-from trading_bot.phase.models import Phase, PhaseTransition, SessionMetrics
-from trading_bot.phase.trade_limiter import TradeLimiter
-from trading_bot.phase.validators import (
+from src.trading_bot.config import Config
+from src.trading_bot.phase.models import Phase, PhaseTransition, SessionMetrics
+from src.trading_bot.phase.trade_limiter import TradeLimiter
+from src.trading_bot.phase.validators import (
     ExperienceToPoCValidator,
     PoCToTrialValidator,
     TrialToScalingValidator,

@@ -9,7 +9,7 @@ Pattern: Follows detector pattern with rolling window analysis
 from collections import deque
 from datetime import datetime, timedelta
 
-from trading_bot.logger import TradingLogger
+from src.trading_bot.logger import TradingLogger
 
 from .config import OrderFlowConfig
 from .data_models import OrderFlowAlert, TimeAndSalesRecord

@@ -22,7 +22,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 from experiment_tracker import ExperimentTracker
-from trading_bot.ml.models_v2 import create_model, RegressionLSTM, CNN_LSTM, MultiTaskLSTM
+from src.trading_bot.ml.models_v2 import create_model, RegressionLSTM, CNN_LSTM, MultiTaskLSTM
 
 def test_config_loading():
     """Test configuration file loading."""

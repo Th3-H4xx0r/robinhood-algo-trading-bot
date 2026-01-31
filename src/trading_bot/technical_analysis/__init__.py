@@ -23,7 +23,7 @@ The framework is designed to be:
 
 Example usage:
 --------------
-    from trading_bot.technical_analysis import TACoordinator
+    from src.trading_bot.technical_analysis import TACoordinator
 
     ta = TACoordinator()
 

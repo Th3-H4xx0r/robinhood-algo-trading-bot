@@ -8,8 +8,8 @@ Pattern: Follows market_data/validators.py pattern with fail-fast validation
 
 from datetime import UTC, datetime
 
-from trading_bot.logger import TradingLogger
-from trading_bot.market_data.exceptions import DataValidationError
+from src.trading_bot.logger import TradingLogger
+from src.trading_bot.market_data.exceptions import DataValidationError
 
 from .config import OrderFlowConfig
 from .data_models import OrderBookSnapshot, TimeAndSalesRecord

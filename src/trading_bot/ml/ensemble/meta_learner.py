@@ -11,7 +11,7 @@ import numpy as np
 import xgboost as xgb
 from numpy.typing import NDArray
 
-from trading_bot.ml.ensemble.base_models import BaseModel
+from src.trading_bot.ml.ensemble.base_models import BaseModel
 
 
 class MetaLearner:

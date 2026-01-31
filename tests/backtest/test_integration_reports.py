@@ -22,9 +22,9 @@ from decimal import Decimal
 from pathlib import Path
 from typing import List
 
-from trading_bot.backtest.engine import BacktestEngine
-from trading_bot.backtest.report_generator import ReportGenerator
-from trading_bot.backtest.models import (
+from src.trading_bot.backtest.engine import BacktestEngine
+from src.trading_bot.backtest.report_generator import ReportGenerator
+from src.trading_bot.backtest.models import (
     BacktestConfig,
     BacktestResult,
     HistoricalDataBar,

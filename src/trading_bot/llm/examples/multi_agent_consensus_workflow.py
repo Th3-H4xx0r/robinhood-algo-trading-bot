@@ -18,8 +18,8 @@ import logging
 from datetime import datetime
 from typing import Dict, Any
 
-from trading_bot.llm.memory_service import AgentMemory
-from trading_bot.llm.agents import (
+from src.trading_bot.llm.memory_service import AgentMemory
+from src.trading_bot.llm.agents import (
     AgentOrchestrator,
     ResearchAgent,
     NewsAnalystAgent,

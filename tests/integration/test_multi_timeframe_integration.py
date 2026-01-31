@@ -26,13 +26,13 @@ import torch
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from trading_bot.ml.features.multi_timeframe import (
+from src.trading_bot.ml.features.multi_timeframe import (
     MultiTimeframeExtractor,
     MultiTimeframeFeatureSet,
 )
-from trading_bot.ml.neural_models import HierarchicalTimeframeNet
-from trading_bot.ml.validation import WalkForwardValidator, WalkForwardConfig
-from trading_bot.ml.training import EarlyStopping, ModelCheckpoint, EnsembleAverager
+from src.trading_bot.ml.neural_models import HierarchicalTimeframeNet
+from src.trading_bot.ml.validation import WalkForwardValidator, WalkForwardConfig
+from src.trading_bot.ml.training import EarlyStopping, ModelCheckpoint, EnsembleAverager
 
 
 # ============================================================================

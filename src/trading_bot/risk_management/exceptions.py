@@ -9,7 +9,7 @@ Follows error hierarchy from src/trading_bot/error_handling/exceptions.py:
 
 from __future__ import annotations
 
-from trading_bot.error_handling.exceptions import (
+from src.trading_bot.error_handling.exceptions import (
     NonRetriableError,
     RetriableError,
 )

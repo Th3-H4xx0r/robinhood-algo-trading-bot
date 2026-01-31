@@ -35,8 +35,8 @@ from alpaca.data.historical import StockHistoricalDataClient
 from alpaca.data.requests import StockBarsRequest
 from alpaca.data.timeframe import TimeFrame, TimeFrameUnit
 
-from trading_bot.ml.features.extractor import FeatureExtractor
-from trading_bot.ml.models_v2 import create_model
+from src.trading_bot.ml.features.extractor import FeatureExtractor
+from src.trading_bot.ml.models_v2 import create_model
 from experiment_tracker import ExperimentTracker
 
 

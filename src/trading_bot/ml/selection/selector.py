@@ -7,8 +7,8 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from trading_bot.ml.config import SelectionConfig
-from trading_bot.ml.models import MLStrategy, StrategyMetrics
+from src.trading_bot.ml.config import SelectionConfig
+from src.trading_bot.ml.models import MLStrategy, StrategyMetrics
 
 logger = logging.getLogger(__name__)
 

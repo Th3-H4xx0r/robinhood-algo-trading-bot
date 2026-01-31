@@ -7,9 +7,9 @@ RED phase tests for TDD workflow - these tests should fail initially.
 from datetime import UTC, datetime
 from decimal import Decimal
 
-from trading_bot.risk_management.config import RiskManagementConfig
-from trading_bot.risk_management.models import PositionPlan
-from trading_bot.risk_management.stop_adjuster import StopAdjuster
+from src.trading_bot.risk_management.config import RiskManagementConfig
+from src.trading_bot.risk_management.models import PositionPlan
+from src.trading_bot.risk_management.stop_adjuster import StopAdjuster
 
 
 def test_calculate_adjustment_with_atr_change():

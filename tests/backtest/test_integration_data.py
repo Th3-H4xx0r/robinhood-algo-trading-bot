@@ -21,8 +21,8 @@ from datetime import datetime, timezone, timedelta
 from decimal import Decimal
 import pytest
 
-from trading_bot.backtest.historical_data_manager import HistoricalDataManager
-from trading_bot.backtest.exceptions import InsufficientDataError, DataQualityError
+from src.trading_bot.backtest.historical_data_manager import HistoricalDataManager
+from src.trading_bot.backtest.exceptions import InsufficientDataError, DataQualityError
 
 
 # Skip all tests in this file if ALPACA_API_KEY is not set

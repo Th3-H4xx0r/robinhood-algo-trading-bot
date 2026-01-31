@@ -19,7 +19,7 @@ from decimal import Decimal
 from pathlib import Path
 from typing import List, Optional
 
-from trading_bot.phase.models import Phase, PhaseTransition
+from src.trading_bot.phase.models import Phase, PhaseTransition
 
 
 class DecimalEncoder(json.JSONEncoder):

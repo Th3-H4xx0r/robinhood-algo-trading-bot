@@ -14,8 +14,8 @@ import numpy as np
 import pandas as pd
 from numpy.typing import NDArray
 
-from trading_bot.ml.config import BacktestConfig
-from trading_bot.ml.models import MLStrategy, StrategyMetrics
+from src.trading_bot.ml.config import BacktestConfig
+from src.trading_bot.ml.models import MLStrategy, StrategyMetrics
 
 logger = logging.getLogger(__name__)
 
@@ -148,8 +148,8 @@ class WalkForwardOptimizer:
             Performance metrics
         """
         try:
-            from trading_bot.ml.features import FeatureExtractor
-            from trading_bot.ml.generators.genetic_programming import GPNode
+            from src.trading_bot.ml.features import FeatureExtractor
+            from src.trading_bot.ml.generators.genetic_programming import GPNode
 
             # Skip if insufficient data
             if len(data) < 50:

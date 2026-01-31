@@ -16,7 +16,7 @@ Research-backed benefits:
 - Reduces false signals near key levels
 
 Usage:
-    from trading_bot.ml.features.support_resistance import SupportResistanceDetector
+    from src.trading_bot.ml.features.support_resistance import SupportResistanceDetector
 
     detector = SupportResistanceDetector()
     levels = detector.find_levels(df, lookback=100)

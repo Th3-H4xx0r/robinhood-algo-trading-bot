@@ -151,7 +151,7 @@ class ConfigValidator:
             self.errors.append("Cannot test API connection: Missing Alpaca credentials")
             return
 
-        from trading_bot.auth import AlpacaAuth, AuthenticationError
+        from src.trading_bot.auth import AlpacaAuth, AuthenticationError
 
         try:
             auth = AlpacaAuth(self.config)

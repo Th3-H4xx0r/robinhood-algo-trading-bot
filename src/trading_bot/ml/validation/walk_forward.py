@@ -16,7 +16,7 @@ References:
 - "Time Series Cross-Validation: Best Practices" (2020)
 
 Usage:
-    from trading_bot.ml.validation import WalkForwardValidator, WalkForwardConfig
+    from src.trading_bot.ml.validation import WalkForwardValidator, WalkForwardConfig
 
     # Configure validation
     config = WalkForwardConfig(

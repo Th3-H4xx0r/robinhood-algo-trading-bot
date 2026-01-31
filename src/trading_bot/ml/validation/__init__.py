@@ -1,6 +1,6 @@
 """Validation utilities for trading ML models."""
 
-from trading_bot.ml.validation.walk_forward import (
+from src.trading_bot.ml.validation.walk_forward import (
     WalkForwardValidator,
     WalkForwardConfig,
     WalkForwardResults,

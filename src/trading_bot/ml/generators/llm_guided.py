@@ -10,9 +10,9 @@ import json
 import logging
 from typing import Any
 
-from trading_bot.llm.openai_client import OpenAIClient
-from trading_bot.ml.config import LLMConfig
-from trading_bot.ml.models import (
+from src.trading_bot.llm.openai_client import OpenAIClient
+from src.trading_bot.ml.config import LLMConfig
+from src.trading_bot.ml.models import (
     MLStrategy,
     StrategyStatus,
     StrategyType,

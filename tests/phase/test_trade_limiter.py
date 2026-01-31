@@ -13,9 +13,9 @@ from decimal import Decimal
 
 import pytest
 
-from trading_bot.config import Config
-from trading_bot.phase.models import Phase
-from trading_bot.phase.trade_limiter import TradeLimiter, TradeLimitExceeded
+from src.trading_bot.config import Config
+from src.trading_bot.phase.models import Phase
+from src.trading_bot.phase.trade_limiter import TradeLimiter, TradeLimitExceeded
 
 
 @pytest.fixture

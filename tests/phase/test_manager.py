@@ -15,11 +15,11 @@ from datetime import date, datetime, timezone
 from decimal import Decimal
 from uuid import UUID
 
-from trading_bot.phase.models import Phase, PhaseTransition
-from trading_bot.phase.validators import ValidationResult
-from trading_bot.phase.manager import PhaseManager, PhaseValidationError
-from trading_bot.phase.trade_limiter import TradeLimiter, TradeLimitExceeded
-from trading_bot.config import Config
+from src.trading_bot.phase.models import Phase, PhaseTransition
+from src.trading_bot.phase.validators import ValidationResult
+from src.trading_bot.phase.manager import PhaseManager, PhaseValidationError
+from src.trading_bot.phase.trade_limiter import TradeLimiter, TradeLimitExceeded
+from src.trading_bot.config import Config
 
 
 class TestPhaseManagerValidateTransition:
@@ -458,7 +458,7 @@ class TestSessionMetrics:
         metrics = manager.calculate_session_metrics(session_date)
 
         # Assert - verify SessionMetrics structure
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         assert isinstance(metrics, SessionMetrics)
         assert metrics.session_date == session_date
         assert metrics.phase == "proof"
@@ -669,7 +669,7 @@ class TestAutomaticDowngrades:
         manager = PhaseManager(config)
 
         # Mock metrics: 3 consecutive losses (no wins)
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="trial",
@@ -698,7 +698,7 @@ class TestAutomaticDowngrades:
         manager = PhaseManager(config)
 
         # Mock metrics: 52% win rate (below 55% threshold)
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="scaling",
@@ -727,7 +727,7 @@ class TestAutomaticDowngrades:
         manager = PhaseManager(config)
 
         # Mock metrics: $600 loss (>5% of $10k portfolio)
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="trial",
@@ -756,7 +756,7 @@ class TestAutomaticDowngrades:
         manager = PhaseManager(config)
 
         # Mock metrics: Good performance (no downgrade needed)
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="trial",
@@ -785,7 +785,7 @@ class TestAutomaticDowngrades:
         manager = PhaseManager(config)
 
         # Mock metrics: Bad performance in Experience phase
-        from trading_bot.phase.models import SessionMetrics
+        from src.trading_bot.phase.models import SessionMetrics
         metrics = SessionMetrics(
             session_date=date(2025, 1, 15),
             phase="experience",

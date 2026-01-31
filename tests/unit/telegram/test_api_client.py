@@ -5,7 +5,7 @@ from unittest.mock import AsyncMock, Mock, patch
 import httpx
 import pytest
 
-from trading_bot.telegram.api_client import InternalAPIClient
+from src.trading_bot.telegram.api_client import InternalAPIClient
 
 
 @pytest.fixture

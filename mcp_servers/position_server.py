@@ -2,7 +2,7 @@
 """
 Position MCP Server
 
-Exposes portfolio and position data from trading_bot to Claude Code via MCP.
+Exposes portfolio and position data from src.trading_bot to Claude Code via MCP.
 
 Tools provided:
 - get_positions: Get all current portfolio positions
@@ -33,10 +33,10 @@ except ImportError:
     print("ERROR: mcp package not installed. Install with: pip install mcp", file=sys.stderr)
     sys.exit(1)
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.account import AccountData, Position
-from trading_bot.performance import PerformanceTracker
-from trading_bot.config import Config
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.account import AccountData, Position
+from src.trading_bot.performance import PerformanceTracker
+from src.trading_bot.config import Config
 
 # Initialize server
 server = Server("position")

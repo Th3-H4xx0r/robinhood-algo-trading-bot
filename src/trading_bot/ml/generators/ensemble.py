@@ -11,8 +11,8 @@ from dataclasses import dataclass
 import numpy as np
 import pandas as pd
 
-from trading_bot.ml.generators.rule_based import RuleBasedStrategy, RuleSignal
-from trading_bot.ml.models import MLStrategy, StrategyMetrics, StrategyType, StrategyStatus
+from src.trading_bot.ml.generators.rule_based import RuleBasedStrategy, RuleSignal
+from src.trading_bot.ml.models import MLStrategy, StrategyMetrics, StrategyType, StrategyStatus
 
 logger = logging.getLogger(__name__)
 

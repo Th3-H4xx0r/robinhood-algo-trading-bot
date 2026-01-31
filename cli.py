@@ -38,8 +38,8 @@ console = Console()
 def _resolve_account_data():
     """Shared helper to initialize AccountData with Alpaca credentials."""
     try:
-        from trading_bot.account import AccountData
-        from trading_bot.auth import AlpacaAuth, AuthenticationError
+        from src.trading_bot.account import AccountData
+        from src.trading_bot.auth import AlpacaAuth, AuthenticationError
 
         auth = AlpacaAuth(None)
         if not auth.is_authenticated():
@@ -106,7 +106,7 @@ def send_cli_notification(message: str):
     def _send_async():
         """Send notification in background thread."""
         try:
-            from trading_bot.notifications.telegram_client import TelegramClient
+            from src.trading_bot.notifications.telegram_client import TelegramClient
 
             # Create new event loop for this thread
             loop = asyncio.new_event_loop()
@@ -155,7 +155,7 @@ def bot():
 @click.option("--orchestrator", is_flag=True, help="Enable LLM orchestrator")
 def start(dry_run: bool, mode: str, orchestrator: bool):
     """Start the trading bot."""
-    from trading_bot.main import main as bot_main
+    from src.trading_bot.main import main as bot_main
 
     console.print(Panel(
         f"[bold green]Starting Trading Bot[/bold green]\n\n"
@@ -518,7 +518,7 @@ def consensus(symbol: str, task_type: str):
     """Get consensus decision from multiple agents."""
     console.print(f"[cyan]Getting consensus for {symbol} - {task_type}...[/cyan]")
 
-    from trading_bot.llm.agents.orchestrator import AgentOrchestrator
+    from src.trading_bot.llm.agents.orchestrator import AgentOrchestrator
 
     try:
         orchestrator = AgentOrchestrator()
@@ -561,7 +561,7 @@ def workflow():
 @click.option("--dry-run", is_flag=True, help="Simulate without executing")
 def execute(workflow_name: str, dry_run: bool):
     """Execute a specific workflow."""
-    from trading_bot.orchestrator.trading_orchestrator import TradingOrchestrator
+    from src.trading_bot.orchestrator.trading_orchestrator import TradingOrchestrator
 
     console.print(f"[cyan]Executing workflow: {workflow_name}...[/cyan]")
 
@@ -633,7 +633,7 @@ def risk():
 def metrics():
     """Show current risk metrics."""
     try:
-        from trading_bot.config import Config
+        from src.trading_bot.config import Config
 
         account_data = _resolve_account_data()
         balance = account_data.get_account_balance()
@@ -683,7 +683,7 @@ def metrics():
 @risk.command()
 def limits():
     """Show configured risk limits."""
-    from trading_bot.config import Config
+    from src.trading_bot.config import Config
 
     try:
         cfg = Config.from_env_and_json()
@@ -750,7 +750,7 @@ def config():
               default="table", help="Output format")
 def view(output_format: str):
     """View current configuration."""
-    from trading_bot.config import Config
+    from src.trading_bot.config import Config
 
     try:
         cfg = Config.from_env_and_json()
@@ -923,7 +923,7 @@ def dashboard():
     """Launch interactive dashboard."""
     console.print("[cyan]Launching dashboard...[/cyan]")
 
-    from trading_bot.main import main as bot_main
+    from src.trading_bot.main import main as bot_main
 
     try:
         sys.argv = ["trading_bot", "dashboard"]
@@ -946,7 +946,7 @@ def watchlist():
 @click.option("--min-volume", type=int, help="Minimum volume filter")
 def generate(preview: bool, min_volume: Optional[int]):
     """Generate new watchlist."""
-    from trading_bot.main import main as bot_main
+    from src.trading_bot.main import main as bot_main
 
     console.print("[cyan]Generating watchlist...[/cyan]")
 
@@ -1011,8 +1011,8 @@ def ta():
 @click.option("--account-size", default=10000.0, help="Account size for position sizing")
 def analyze(symbol: str, timeframe: str, lookback: int, account_size: float):
     """Analyze a symbol using the TA framework."""
-    from trading_bot.technical_analysis import TACoordinator
-    from trading_bot.market_data.alpaca_market_data import AlpacaMarketData
+    from src.trading_bot.technical_analysis import TACoordinator
+    from src.trading_bot.market_data.alpaca_market_data import AlpacaMarketData
     import pandas as pd
 
     console.print(Panel(
@@ -1099,7 +1099,7 @@ def analyze(symbol: str, timeframe: str, lookback: int, account_size: float):
 @click.option("--initial-capital", default=10000.0, help="Initial capital")
 def backtest(symbol: str, start_date: Optional[str], end_date: Optional[str], initial_capital: float):
     """Backtest TA framework on historical data."""
-    from trading_bot.technical_analysis import TACoordinator, TradingJournal
+    from src.trading_bot.technical_analysis import TACoordinator, TradingJournal
     from datetime import datetime
 
     console.print(Panel(

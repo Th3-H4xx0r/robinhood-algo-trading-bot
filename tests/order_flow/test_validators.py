@@ -14,9 +14,9 @@ from decimal import Decimal
 
 import pytest
 
-from trading_bot.market_data.exceptions import DataValidationError
-from trading_bot.order_flow.data_models import OrderBookSnapshot, TimeAndSalesRecord
-from trading_bot.order_flow.validators import validate_level2_data, validate_tape_data
+from src.trading_bot.market_data.exceptions import DataValidationError
+from src.trading_bot.order_flow.data_models import OrderBookSnapshot, TimeAndSalesRecord
+from src.trading_bot.order_flow.validators import validate_level2_data, validate_tape_data
 
 
 class TestValidateLevel2Data:

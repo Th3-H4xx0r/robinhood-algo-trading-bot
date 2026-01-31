@@ -109,8 +109,8 @@ class TestGetQuote:
         """
         from datetime import datetime, timezone
         from decimal import Decimal
-        from trading_bot.market_data.data_models import Quote
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.data_models import Quote
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Mock trading hours check to allow trading
         mock_is_trading_hours.return_value = True
@@ -147,8 +147,8 @@ class TestGetQuote:
         WHEN: get_quote called with symbol that returns invalid price "0.0"
         THEN: Raises DataValidationError from validate_quote
         """
-        from trading_bot.market_data.exceptions import DataValidationError
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.exceptions import DataValidationError
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Mock trading hours check to allow trading
         mock_is_trading_hours.return_value = True
@@ -203,8 +203,8 @@ class TestNetworkErrorHandling:
         WHEN: get_quote called and robin_stocks raises ConnectionError
         THEN: Raises RetriableError (propagated from network layer)
         """
-        from trading_bot.error_handling.exceptions import RetriableError
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.error_handling.exceptions import RetriableError
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -230,7 +230,7 @@ class TestNetworkErrorHandling:
         WHEN: get_quote called and robin_stocks raises TimeoutError
         THEN: Raises TimeoutError (propagated from network layer)
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -260,7 +260,7 @@ class TestInvalidSymbolHandling:
         WHEN: get_quote called with invalid symbol
         THEN: Raises ValueError from robin_stocks
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -286,7 +286,7 @@ class TestInvalidSymbolHandling:
         WHEN: get_quote called and robin_stocks returns empty list
         THEN: Raises IndexError when trying to access price
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -319,8 +319,8 @@ class TestCircuitBreakerIntegration:
         NOTE: Circuit breaker implementation is in error_handling module.
         This test verifies integration with MarketDataService.
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
-        from trading_bot.error_handling.circuit_breaker import CircuitBreaker
+        from src.trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.error_handling.circuit_breaker import CircuitBreaker
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -355,8 +355,8 @@ class TestDataValidationErrors:
         WHEN: get_quote returns invalid price (negative)
         THEN: Raises DataValidationError from validate_quote
         """
-        from trading_bot.market_data.exceptions import DataValidationError
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.exceptions import DataValidationError
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -382,8 +382,8 @@ class TestDataValidationErrors:
         WHEN: get_quote returns zero price
         THEN: Raises DataValidationError from validate_quote
         """
-        from trading_bot.market_data.exceptions import DataValidationError
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.exceptions import DataValidationError
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -417,7 +417,7 @@ class TestTimestampStaleness:
         so timestamp is always fresh. This test documents future behavior
         when we receive timestamps from API responses.
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -454,7 +454,7 @@ class TestMarketStateDetection:
         """
         from datetime import UTC, datetime
         from freezegun import freeze_time
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours check passes (pre-market is within 7am-10am window)
         mock_is_trading_hours.return_value = True
@@ -484,7 +484,7 @@ class TestMarketStateDetection:
         THEN: Quote.market_state == "regular"
         """
         from freezegun import freeze_time
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours check passes
         mock_is_trading_hours.return_value = True
@@ -514,7 +514,7 @@ class TestMarketStateDetection:
         THEN: Quote.market_state == "post"
         """
         from freezegun import freeze_time
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours check fails (after-hours outside 7am-10am window)
         # But we'll mock it to pass for testing market_state detection
@@ -545,7 +545,7 @@ class TestMarketStateDetection:
         THEN: Quote.market_state == "closed"
         """
         from freezegun import freeze_time
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours check fails (weekend)
         # But we'll mock it to pass for testing market_state detection
@@ -576,7 +576,7 @@ class TestMarketStateDetection:
         THEN: Quote.market_state == "closed"
         """
         from freezegun import freeze_time
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Trading hours check fails (late night)
         # But we'll mock it to pass for testing market_state detection
@@ -610,8 +610,8 @@ class TestTradingHoursError:
         WHEN: get_quote called outside trading hours (7am-10am EST)
         THEN: Raises TradingHoursError before calling robin_stocks
         """
-        from trading_bot.market_data.exceptions import TradingHoursError
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.exceptions import TradingHoursError
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: Outside trading hours
         mock_is_trading_hours.return_value = False
@@ -637,7 +637,7 @@ class TestTradingHoursError:
         WHEN: get_quote called during trading hours
         THEN: Proceeds to API call (no TradingHoursError)
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.market_data_service import MarketDataService
 
         # Given: During trading hours
         mock_is_trading_hours.return_value = True
@@ -673,8 +673,8 @@ class TestIsMarketOpen:
         THEN: Returns MarketStatus with is_open=True
         """
         from datetime import datetime
-        from trading_bot.market_data.market_data_service import MarketDataService
-        from trading_bot.market_data.data_models import MarketStatus
+        from src.trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.data_models import MarketStatus
 
         # Given: robin_stocks returns market open
         mock_get_market_hours.return_value = {
@@ -709,8 +709,8 @@ class TestIsMarketOpen:
         WHEN: is_market_open called and market is closed
         THEN: Returns MarketStatus with is_open=False
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
-        from trading_bot.market_data.data_models import MarketStatus
+        from src.trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.data_models import MarketStatus
 
         # Given: robin_stocks returns market closed
         mock_get_market_hours.return_value = {
@@ -749,8 +749,8 @@ class TestGetQuotesBatch:
         WHEN: get_quotes_batch called with multiple symbols
         THEN: Returns dict with Quote for each symbol
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
-        from trading_bot.market_data.data_models import Quote
+        from src.trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.data_models import Quote
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True
@@ -784,8 +784,8 @@ class TestGetQuotesBatch:
         WHEN: get_quotes_batch called and some symbols fail
         THEN: Returns quotes for successful symbols only, logs warning for failures
         """
-        from trading_bot.market_data.market_data_service import MarketDataService
-        from trading_bot.market_data.data_models import Quote
+        from src.trading_bot.market_data.market_data_service import MarketDataService
+        from src.trading_bot.market_data.data_models import Quote
 
         # Given: Trading hours enabled
         mock_is_trading_hours.return_value = True

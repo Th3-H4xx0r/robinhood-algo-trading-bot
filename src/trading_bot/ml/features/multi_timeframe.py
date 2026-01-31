@@ -10,7 +10,7 @@ Research-backed benefits:
 - Reduced false signals through cross-timeframe confirmation
 
 Usage:
-    from trading_bot.ml.features.multi_timeframe import MultiTimeframeExtractor
+    from src.trading_bot.ml.features.multi_timeframe import MultiTimeframeExtractor
 
     extractor = MultiTimeframeExtractor()
     mtf_features = extractor.extract_aligned_features(
@@ -29,8 +29,8 @@ from typing import Dict, List, Optional
 import numpy as np
 import pandas as pd
 
-from trading_bot.ml.features.extractor import FeatureExtractor
-from trading_bot.ml.models import FeatureSet
+from src.trading_bot.ml.features.extractor import FeatureExtractor
+from src.trading_bot.ml.models import FeatureSet
 
 logger = logging.getLogger(__name__)
 

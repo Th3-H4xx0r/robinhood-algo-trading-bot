@@ -10,14 +10,14 @@ from decimal import Decimal
 
 import pytest
 
-from trading_bot.market_data.data_models import PriceBar
-from trading_bot.risk_management.atr_calculator import ATRCalculator
-from trading_bot.risk_management.exceptions import (
+from src.trading_bot.market_data.data_models import PriceBar
+from src.trading_bot.risk_management.atr_calculator import ATRCalculator
+from src.trading_bot.risk_management.exceptions import (
     ATRCalculationError,
     ATRValidationError,
     StaleDataError,
 )
-from trading_bot.risk_management.models import ATRStopData
+from src.trading_bot.risk_management.models import ATRStopData
 
 
 def test_calculate_atr_from_bars_valid_data():

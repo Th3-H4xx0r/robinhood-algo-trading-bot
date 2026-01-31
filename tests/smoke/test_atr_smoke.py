@@ -22,12 +22,12 @@ from decimal import Decimal
 
 import pytest
 
-from trading_bot.market_data.data_models import PriceBar
-from trading_bot.risk_management.atr_calculator import ATRCalculator
-from trading_bot.risk_management.calculator import calculate_position_plan
-from trading_bot.risk_management.config import RiskManagementConfig
-from trading_bot.risk_management.models import ATRStopData, PositionPlan
-from trading_bot.risk_management.stop_adjuster import StopAdjuster
+from src.trading_bot.market_data.data_models import PriceBar
+from src.trading_bot.risk_management.atr_calculator import ATRCalculator
+from src.trading_bot.risk_management.calculator import calculate_position_plan
+from src.trading_bot.risk_management.config import RiskManagementConfig
+from src.trading_bot.risk_management.models import ATRStopData, PositionPlan
+from src.trading_bot.risk_management.stop_adjuster import StopAdjuster
 
 
 class TestATRSmoke:

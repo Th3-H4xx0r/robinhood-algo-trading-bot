@@ -25,14 +25,14 @@ from unittest.mock import MagicMock, Mock, call, patch
 
 import pytest
 
-from trading_bot.logging.screener_logger import ScreenerLogger
-from trading_bot.market_data.market_data_service import MarketDataService
-from trading_bot.schemas.screener_schemas import (
+from src.trading_bot.logging.screener_logger import ScreenerLogger
+from src.trading_bot.market_data.market_data_service import MarketDataService
+from src.trading_bot.schemas.screener_schemas import (
     ScreenerQuery,
     StockScreenerMatch,
 )
-from trading_bot.screener_config import ScreenerConfig
-from trading_bot.services.screener_service import ScreenerService
+from src.trading_bot.screener_config import ScreenerConfig
+from src.trading_bot.services.screener_service import ScreenerService
 
 
 @pytest.fixture

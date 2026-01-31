@@ -9,9 +9,9 @@ import time
 from decimal import Decimal
 from datetime import date
 
-from trading_bot.config import Config
-from trading_bot.phase import Phase, PhaseManager
-from trading_bot.phase.trade_limiter import TradeLimiter
+from src.trading_bot.config import Config
+from src.trading_bot.phase import Phase, PhaseManager
+from src.trading_bot.phase.trade_limiter import TradeLimiter
 
 
 class TestPhaseSystemSmoke:

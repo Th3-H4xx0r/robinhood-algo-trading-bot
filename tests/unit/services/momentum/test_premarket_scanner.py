@@ -15,11 +15,11 @@ from unittest.mock import AsyncMock, MagicMock, Mock, patch
 
 import pytest
 
-from trading_bot.market_data.data_models import Quote
-from trading_bot.momentum.config import MomentumConfig
-from trading_bot.momentum.logging.momentum_logger import MomentumLogger
-from trading_bot.momentum.premarket_scanner import PreMarketScanner
-from trading_bot.momentum.schemas.momentum_signal import MomentumSignal, SignalType
+from src.trading_bot.market_data.data_models import Quote
+from src.trading_bot.momentum.config import MomentumConfig
+from src.trading_bot.momentum.logging.momentum_logger import MomentumLogger
+from src.trading_bot.momentum.premarket_scanner import PreMarketScanner
+from src.trading_bot.momentum.schemas.momentum_signal import MomentumSignal, SignalType
 
 
 @pytest.fixture

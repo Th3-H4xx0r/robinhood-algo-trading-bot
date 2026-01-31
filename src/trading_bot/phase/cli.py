@@ -16,10 +16,10 @@ from datetime import date
 from pathlib import Path
 from typing import Optional
 
-from trading_bot.phase.history_logger import HistoryLogger, DecimalEncoder
-from trading_bot.phase.manager import PhaseManager
-from trading_bot.phase.models import Phase
-from trading_bot.config import Config
+from src.trading_bot.phase.history_logger import HistoryLogger, DecimalEncoder
+from src.trading_bot.phase.manager import PhaseManager
+from src.trading_bot.phase.models import Phase
+from src.trading_bot.config import Config
 
 
 def export_command(

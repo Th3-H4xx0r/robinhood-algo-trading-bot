@@ -4,8 +4,8 @@ This module provides the core SessionHealthMonitor service that proactively
 checks API session health every 5 minutes and triggers automatic reauth when needed.
 
 Usage:
-    from trading_bot.health import SessionHealthMonitor
-    from trading_bot.auth import AlpacaAuth
+    from src.trading_bot.health import SessionHealthMonitor
+    from src.trading_bot.auth import AlpacaAuth
 
     auth = AlpacaAuth(config)
     health_monitor = SessionHealthMonitor(auth)
@@ -38,10 +38,10 @@ from dataclasses import dataclass, replace
 from datetime import UTC, datetime
 
 
-from trading_bot.auth import AlpacaAuth
-from trading_bot.error_handling.circuit_breaker import circuit_breaker
-from trading_bot.error_handling.retry import with_retry
-from trading_bot.health.health_logger import HealthCheckLogger
+from src.trading_bot.auth import AlpacaAuth
+from src.trading_bot.error_handling.circuit_breaker import circuit_breaker
+from src.trading_bot.error_handling.retry import with_retry
+from src.trading_bot.health.health_logger import HealthCheckLogger
 
 __all__ = ["SessionHealthStatus", "HealthCheckResult", "SessionHealthMonitor"]
 

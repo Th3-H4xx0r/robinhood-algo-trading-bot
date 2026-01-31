@@ -2,7 +2,7 @@
 """
 Risk MCP Server
 
-Exposes risk management capabilities from trading_bot to Claude Code via MCP.
+Exposes risk management capabilities from src.trading_bot to Claude Code via MCP.
 
 Tools provided:
 - calculate_position_risk: Calculate risk for proposed position size
@@ -32,10 +32,10 @@ except ImportError:
     print("ERROR: mcp package not installed. Install with: pip install mcp", file=sys.stderr)
     sys.exit(1)
 
-from trading_bot.auth.robinhood_auth import RobinhoodAuth
-from trading_bot.risk_management import RiskCalculator
-from trading_bot.account import AccountData
-from trading_bot.config import Config
+from src.trading_bot.auth.robinhood_auth import RobinhoodAuth
+from src.trading_bot.risk_management import RiskCalculator
+from src.trading_bot.account import AccountData
+from src.trading_bot.config import Config
 
 # Initialize server
 server = Server("risk")

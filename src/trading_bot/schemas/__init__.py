@@ -8,7 +8,7 @@ Dataclasses for stock screener functionality:
 - ScreenerResult: Complete response contract
 """
 
-from trading_bot.schemas.screener_schemas import (
+from src.trading_bot.schemas.screener_schemas import (
     PageInfo,
     ScreenerQuery,
     ScreenerResult,

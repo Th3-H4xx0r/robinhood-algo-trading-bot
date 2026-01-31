@@ -9,7 +9,7 @@ Enforces Constitution v1.0.0:
 - §Safety_First: Bot fails to start if auth fails
 """
 
-from trading_bot.auth.alpaca_auth import AlpacaAuth, AuthenticationError
+from src.trading_bot.auth.alpaca_auth import AlpacaAuth, AuthenticationError
 
 # Backwards compatibility: legacy RobinhoodAuth imports now resolve to AlpacaAuth
 RobinhoodAuth = AlpacaAuth
