@@ -52,7 +52,7 @@ class LLMModel(str, Enum):
 @dataclass
 class LLMConfig:
     """Configuration for Claude Code manager"""
-    daily_budget_usd: float = 5.0  # Max spend per day
+    daily_budget_usd: float = 1.5  # Max spend per day
     model: LLMModel = LLMModel.HAIKU
     timeout_seconds: int = 30  # Per-call timeout
     max_calls_per_hour: int = 50

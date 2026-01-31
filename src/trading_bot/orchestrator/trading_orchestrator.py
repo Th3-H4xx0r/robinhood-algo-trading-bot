@@ -89,7 +89,7 @@ class TradingOrchestrator:
         # Initialize LLM manager (if available)
         if HAS_LLM:
             llm_config = LLMConfig(
-                daily_budget_usd=5.0,
+                daily_budget_usd=1.0,
                 model=LLMModel.HAIKU,
                 timeout_seconds=30,
                 max_calls_per_hour=50
