@@ -18,6 +18,7 @@ secrets.json
 # CONFIGURATION - User-specific settings
 # ============================================
 !config.example.json
+!config.json
 
 # ============================================
 # Python
